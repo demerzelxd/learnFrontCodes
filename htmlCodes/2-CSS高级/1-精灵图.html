@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>精灵图主要用于背景图片，主要使用background-position，移动这个图片的x或y轴，一般都是负值</title>
+        <style>
+            /*.box1 {*/
+            /*    width: 60px;*/
+            /*    height: 60px;*/
+            /*    background: url("./assets/sprites.png") no-repeat -182px 0;*/
+            /*    margin: 100px auto;*/
+            /*}*/
+            span {
+                display: inline-block;
+                background: url("./assets/abcd.jpg") no-repeat;
+            }
+
+            .first {
+                width: 100px;
+                height: 112px;
+                background-position: -493px -276px;
+            }
+
+            .second {
+                width: 60px;
+                height: 108px;
+                background-position: -327px -142px;
+            }
+
+            .third {
+                width: 108px;
+                height: 109px;
+                background-position: -215px -141px;
+            }
+
+            .fourth {
+                width: 105px;
+                height: 114px;
+                background-position: -495px -142px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--<div class="box1"></div>-->
+        <!--拼出自己名称-->
+        <span class="first"></span>
+        <span class="second"></span>
+        <span class="third"></span>
+        <span class="fourth"></span>
+    </body>
+</html>
