@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CSS相关</title>
+        <style>
+            /*p {*/
+            /*    font-family: '宋体', serif;*/
+            /*    font-size: 24px;*/
+            /*    font-weight: bold;*/
+            /*    font-style: italic;*/
+            /*}*/
+            /*p {*/
+            /*    !*复合属性font, 四个位置分别为font-style,*/
+            /*    !*font-weight, font-size/line-height, font-family*!*/
+            /*    font: italic bold 16px/26px '宋体', serif;*/
+            /*}*/
+            .box {
+                width: 100px;
+                height: 100px;
+            }
+            .red-box {
+                background-color: red;
+            }
+            .green-box {
+                background-color: green;
+            }
+            h2 {
+                /*字体有英文最好使用英文写法*/
+                font-family: '宋体', 'Microsoft YaHei', serif;
+                font-weight: normal;
+            }
+            em {
+                font-style: normal;
+                color: rgb(255, 0, 0);
+                text-decoration-line: line-through;
+            }
+        </style>
+        `<link rel="stylesheet" href="aa.css">`
+    </head>
+    <body>
+        <p>测试文字</p>
+        <div class="box red-box"></div>
+        <div class="box green-box"></div>
+        <div class="box red-box"></div>
+        <h2>测试字体</h2>
+        <em>测试font-style</em>
+        <p style="text-indent: 2em">首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进</p>
+        <p>不首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进首行缩进</p>
+    </body>
+</html>

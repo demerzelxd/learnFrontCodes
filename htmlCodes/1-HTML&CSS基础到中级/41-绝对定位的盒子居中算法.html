@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .father {
+                width: 500px;
+                height: 500px;
+                background-color: skyblue;
+                position: relative;
+            }
+            .box {
+                position: absolute;
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                /*加了绝对定位的盒子就不能再通过margin: 0 auto来定位了*/
+                /*margin: 0 auto;*/
+
+                /*实现水平定位：先left 50%然后再减掉盒子宽度的一半*/
+                left: 50%;
+                margin-left: -100px;
+                /*实现垂直定位：先top 50%然后再减掉盒子高度的一半*/
+                top: 50%;
+                margin-top: -100px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="father">
+            <div class="box"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            /*选择所有ul下的li，而不是ol下的*/
+            ul li {
+                color: red;
+            }
+
+            /*a:link {*/
+            /*    color: black;*/
+            /*    text-decoration: none;*/
+            /*}*/
+
+            /*a:visited {*/
+            /*    color: darkcyan;*/
+            /*}*/
+
+            /*a:hover {*/
+            /*    color: red;*/
+            /*}*/
+
+            /*a:active {*/
+            /*    color: yellow;*/
+            /*}*/
+
+            /*一般只需要*/
+            a {
+                color: #333;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #369;
+                text-decoration: underline;
+            }
+
+            .input1:focus {
+                background-color: red;
+            }
+            .input2:focus {
+                background-color: yellow;
+            }
+            .input3:focus {
+                background-color: blue;
+            }
+
+            .bloA {
+                display: block;
+                width: 200px;
+                height: 50px;
+                background-color: yellow;
+            }
+
+            .bloA:hover {
+                background-color: cyan;
+            }
+
+            .inDiv {
+                display: inline;
+                /*width: 200px;*/
+                /*height: 50px;*/
+                background-color: purple;
+            }
+
+            .inBloSpan {
+                display: inline-block;
+                width: 200px;
+                height: 50px;
+                background-color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <ol>
+            <li>这是ol下的li1</li>
+            <li>这是ol下的li2</li>
+            <li>这是ol下的li3</li>
+            <li>这是ol下的li4</li>
+            <li>这是ol下的li5</li>
+        </ol>
+        <ul>
+            <li>这是ul下的li1</li>
+            <li>这是ul下的li2</li>
+            <li>这是ul下的li3</li>
+            <li>这是ul下的li4</li>
+            <li>这是ul下的li5</li>
+        </ul>
+        <p>嘿嘿</p>
+        <div>哈哈</div>
+        <a href="#">测试伪类选择器</a>
+
+        <br>
+
+        <input type="text" class="input1">
+        <input type="text" class="input2">
+        <input type="text" class="input3">
+
+        <!--<p>-->
+        <!--    <div></div>-->
+        <!--</p>-->
+
+        <a href="#" class="bloA"></a>
+        <div class="inDiv">这里是div</div>
+        <span class="inBloSpan">转为行内块</span>
+    </body>
+</html>

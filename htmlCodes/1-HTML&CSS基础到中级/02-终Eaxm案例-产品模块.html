@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: #F5F5F5;
+            }
+            a {
+                color: #333;
+                text-decoration: none;
+            }
+            .box {
+                width: 298px;
+                height: 415px;
+                margin: 100px auto;
+                background-color: #FFF;
+            }
+            .box img {
+                /*和父亲一样宽*/
+                width: 100%;
+            }
+            .box .comment {
+                height: 70px;
+                font-size: 14px;
+                /*本身没有指定宽度，是继承的父亲的宽，所以这样写并不会撑大*/
+                padding: 0 28px;
+                /*用margin，这样不用担心padding会撑大盒子*/
+                margin-top: 30px;
+            }
+            .box .from {
+                font-size: 12px;
+                color: #B0B0B0;
+                margin-top: 20px;
+                padding: 0 28px;
+            }
+            .box .info {
+                font-size: 14px;
+                margin-top: 15px;
+                padding: 0 28px;
+            }
+            .box .info h4 {
+                /*将块级元素转为行内元素，否则不在一行*/
+                display: inline-block;
+                /*取消加粗*/
+                font-weight: normal;
+            }
+            .box .info span {
+                color: #FF6700;
+            }
+            .box .info em {
+                color: #EBE4E0;
+                margin: 0 6px 0 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <img src="assets/img.jpg" alt="备用文字">
+            <p class="comment">快递牛，整体不错蓝牙可以秒连。红米给力</p>
+            <div class="from">来自于 123456 的评价</div>
+            <div class="info">
+                <h4><a href="#">Redmi AirDots真无线蓝...</a></h4>
+                <em>|</em>
+                <span>99.9元</span>
+            </div>
+        </div>
+    </body>
+</html>

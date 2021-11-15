@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+                background-color: pink;
+            }
+
+            .box-after {
+                /*相对于原位置移动*/
+                position: relative;
+                left: 100px;
+                top: 100px;
+                background-color: skyblue;
+            }
+
+            .box-other {
+                background-color: lightseagreen;
+            }
+        </style>
+    </head>
+    <body>
+        <!--定位=定位模式+边偏移-->
+        <!--定位模式：static静态定位、relative相对定位、absolute绝对定位、fixed固定定位-->
+        <!--边偏移：top（相对于父元素上边线的距离）、bottom、left、right-->
+        <!--如果一个盒子既有left也有right，则会优先执行left，不会覆盖-->
+
+        <!--静态定位（了解）-->
+        <!--默认定位方式，也即无定位，按照标准流的特性摆放-->
+
+        <!--相对定位（重要）-->
+        <!--相对于自己原来的位置-->
+        <!--相对定位脱标后依然占据原位置-->
+        <div class="box box-origin">
+            原来的位置
+        </div>
+        <div class="box box-after">
+            相对位移100px
+        </div>
+        <div class="box box-other">
+            别的元素
+        </div>
+    </body>
+</html>

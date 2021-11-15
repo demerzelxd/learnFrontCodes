@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>第一个页面</title>
+        <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+        <style>
+            table {
+                width: 500px;
+                height: 100px;
+                font-size: 16px;
+                text-align: center;
+                margin: 0 auto;
+            }
+            table, th, td {
+                /*表格和th、td都要加边框，只给表格加边框只会加到最外围*/
+                border: 1px solid pink;
+                /*但是这样会有两个边框重叠，下面让相邻边框合并*/
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        这里是内容
+        <!--<img src="https://pic2.zhimg.com/50/v2-3d4d0f56a99966ad110f680bdf62d5bb_hd.jpg?source=1940ef5c" alt="" width="500px" border="15px">-->
+        <a href="" target="_blank"></a>
+        <p>1            1</p>
+        <!--表格-->
+        <table cellpadding="8px" cellspacing="2">
+            <thead>
+                <tr>
+                    <th>标题1</th>
+                    <th>标题2</th>
+                    <th>标题3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>内容111</td>
+                    <td>内容222</td>
+                    <td>内容333</td>
+                </tr>
+                <tr>
+                    <td>内容444</td>
+                    <td>内容555</td>
+                    <td>内容666</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <!--单元格合并-->
+        <table align="center" cellpadding="8px" cellspacing="0">
+            <thead>
+            <tr>
+                <th colspan="3">大标题</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td rowspan="2">内容111</td>
+                <td>内容222</td>
+                <td>内容333</td>
+            </tr>
+            <tr>
+                <td>内容444</td>
+                <td>内容555</td>
+            </tr>
+            </tbody>
+        </table>
+        <!--无序列表-->
+        <ul>
+            <li>列表1</li>
+            <li>列表2</li>
+            <li>列表3</li>
+        </ul>
+        <!--有序列表-->
+        <ol>
+            <li>有序列表1</li>
+            <li>有序列表2</li>
+            <li>有序列表3</li>
+        </ol>
+        <!--自定义列表-->
+        <dl>
+            <dt>名词1</dt>
+            <dd>名词1解释1</dd>
+            <dd>名词1解释2</dd>
+            <dt>名词2</dt>
+            <dd>名词2解释1</dd>
+            <dd>名词2解释2</dd>
+        </dl>
+
+        <form action="demo.php" method="get" name="myForm">
+            <!--文本-->
+            用户名：<input name="username" type="text" value="dada" placeholder="请输入用户名" maxlength="5"><br>
+            <!--密码-->
+            密码：<input name="pwd" type="password"><br>
+            <!--单选的name必须相同，只有指定name之后才能单选-->
+            <!--指定value之后，后台实际收到的值是value-->
+            <!--checked为默认选中-->
+            性别：男<input name="gender" type="radio" value="man" checked>女<input name="gender" type="radio" value="female"><br>
+            <!--多选-->
+            爱好：打游戏<input type="checkbox" name="hobby" value="play">学习<input type="checkbox" name="hobby" value="study"><br>
+
+            <!--提交，必须所有input都有name才能提交-->
+            <input type="submit" value="注册">
+            <input type="reset" value="重置">
+            <input type="button" value="按钮"><br>
+
+            <!--文件上传-->
+            <input type="file">
+            <br>
+            <label for="dateInput">日期：</label>
+            <input type="date" id="dateInput">
+            <br>
+            <br>
+            <br>
+            <br>
+            <!--label的for属性对应下方input的id-->
+            <label for="man">男</label>
+            <input type="radio" name="sex" id="man">
+            <label for="woman">女</label>
+            <input type="radio" name="sex" id="woman">
+        </form>
+        <br>
+        <br>
+        <br>
+        <label for="zone">籍贯：</label>
+        <select id="zone">
+            <option>广东</option>
+            <!--selected默认选中-->
+            <option selected>河南</option>
+            <option>山东</option>
+            <option>河北</option>
+        </select>
+        <br>
+        <br>
+        <br>
+        <br>
+        <label for="opinion">审核意见：</label>
+        <textarea name="opinion" id="opinion" cols="30" rows="10">默认显示的文字</textarea>
+    </body>
+</html>
+
+

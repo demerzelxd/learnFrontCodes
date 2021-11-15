@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+
+            /*去掉所有小圆点*/
+            li {
+                list-style: none;
+            }
+
+            .father {
+                width: 1226px;
+                height: 285px;
+                margin: 0 auto;
+                background-color: red;
+            }
+
+            .son {
+                width: 296px;
+                height: 285px;
+                float: left;
+                margin-right: 14px;
+            }
+
+            .son1 {
+                background-color: pink;
+            }
+
+            .son2 {
+                background-color: lightseagreen;
+            }
+
+            .son3 {
+                background-color: mediumpurple;
+            }
+
+            .son4 {
+                background-color: skyblue;
+                /*手动去除最后一个元素的外边距*/
+                margin-right: 0;
+            }
+
+            li {
+
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="father">
+            <li class="son son1"></li>
+            <li class="son son2"></li>
+            <li class="son son3"></li>
+            <li class="son son4"></li>
+        </ul>
+    </body>
+</html>

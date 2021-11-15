@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .box1 {
+                background-color: indianred;
+                z-index: 3;
+            }
+
+            .box2 {
+                background-color: lightseagreen;
+                z-index: 2;
+            }
+
+            .box3 {
+                background-color: skyblue;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <!--z-index可以是正整数，负整数和0，数值越大，盒子越靠上。默认是auto-->
+        <!--只有定位的盒子才有z-index-->
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+    </body>
+</html>

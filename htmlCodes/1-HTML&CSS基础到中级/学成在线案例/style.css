@@ -1,0 +1,371 @@
+/*CSS顺序*/
+/*1、布局定位属性（display,position,float,clear,visibility,overflow）*/
+/*2、自身属性（width,height,margin,padding,border,background）*/
+/*3、文本属性（color,font,text-decoration,text-align）*/
+/*4、其他属性（cursor,border-radius,box-shadow）*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #F3F5F7;
+    /*测试时使用，暂时提高页面高度*/
+    /*height: 3000px;*/
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*父级添加双伪元素，在前后增加盒子*/
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    /*兼容IE6、7*/
+    *zoom: 1;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    height: 42px;
+    /*不能用0而应用auto，若用0的话会把w的auto给覆盖掉，这样就不居中了*/
+    margin: 30px auto;
+}
+
+.logo {
+    width: 198px;
+    height: 42px;
+    float: left;
+}
+
+.nav {
+    /*不需要给宽度，因为块级元素加上浮动之后，默认会有行内块元素的特性，宽度和内容相等*/
+    /*不设置宽度可以方便后续添加nav*/
+    height: 42px;
+    margin-left: 60px;
+    float: left;
+}
+
+.nav .nav-item {
+    /*li为块级元素，要加浮动*/
+    float: left;
+    /*margin水平方向不会叠加margin，垂直方向会叠加取最大*/
+    margin: 0 15px;
+}
+
+.nav .nav-item a {
+    display: inline-block;
+    padding: 0 10px;
+    line-height: 42px;
+    font-size: 18px;
+    color: #333;
+}
+
+.nav .nav-item a:hover {
+    border-bottom: 2px solid #00A4FF;
+    color: #00A4FF;
+}
+
+.search {
+    width: 412px;
+    height: 42px;
+    margin-left: 70px;
+    float: left;
+}
+
+.search input {
+    width: 345px;
+    /*考虑边框，去除2px，所以高为40px*/
+    height: 40px;
+    float: left;
+    border: 1px solid #00A4FF;
+    border-right: none;
+    font-size: 14px;
+    padding-left: 15px;
+}
+
+.search input:focus {
+    /*获取焦点时，input的边框应为outline*/
+    outline: none;
+}
+
+.search input::-webkit-input-placeholder {
+    /* placeholder颜色  */
+    color: #BFBFBF;
+    /* placeholder字体大小  */
+    font-size: 14px;
+}
+
+.search button {
+    width: 50px;
+    height: 42px;
+    float: left;
+    /*去除按钮默认的边框*/
+    border: none;
+    background: url("images/btn.png");
+    cursor: pointer;
+}
+
+.avatar {
+    float: right;
+    /*文字垂直居中*/
+    line-height: 42px;
+    margin-right: 30px;
+    background-image: url(images/user.png);
+    background-repeat: no-repeat;
+    /*图片垂直居中*/
+    background-position: left center;
+    text-indent: 2em;
+}
+
+.banner {
+    height: 421px;
+    background-color: #1C036C;
+}
+
+.banner-heart {
+    height: 421px;
+    background: url("images/banner2_20190819_210028.png");
+}
+
+.banner-left {
+    float: left;
+    width: 190px;
+    height: 421px;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.banner-left ul:first-child {
+    margin-top: 8px;
+}
+
+.sub-nav-item {
+    margin: 0 20px;
+    height: 45px;
+    line-height: 45px;
+}
+
+.sub-nav-item a {
+    font-size: 14px;
+    color: white;
+}
+
+.sub-nav-item a span {
+    float: right;
+}
+
+.sub-nav-item a:hover {
+    color: #00A4FF;
+}
+
+.banner-right{
+    float: right;
+    width: 230px;
+    height: 300px;
+    background-color: white;
+    /*浮动的盒子不会有外边距塌陷的问题*/
+    margin-top: 60px;
+}
+
+.banner-right h2 {
+    height: 48px;
+    background-color: #9BCEEA;
+    text-align: center;
+    line-height: 48px;
+    font-size: 18px;
+    color: white;
+}
+
+.banner-right .bd {
+    padding: 0 20px;
+}
+
+.bd ul > li {
+    padding: 14px 0;
+    border-bottom: 1px solid #CCC;
+}
+
+.bd ul > li > h4 {
+    font-size: 16px;
+    color: #4E4E4E;
+}
+
+.bd ul > li > p {
+    font-size: 12px;
+    color: #A5A5A5;
+}
+
+.bd > a {
+    display: block;
+    height: 38px;
+    border: 1px solid #00A4FF;
+    text-align: center;
+    line-height: 38px;
+    color: #00A4FF;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+.recommend {
+    height: 60px;
+    background-color: #fff;
+    box-shadow: 0 2px 3px 3px rgba(0, 0, 0, .1);
+    margin-top: 10px;
+    line-height: 60px;
+}
+
+.recommend h3 {
+    float: left;
+    margin: 0 30px;
+    font-size: 16px;
+    color: #00A4FF;
+}
+
+.recommend ul li {
+    float: left;
+}
+
+.recommend ul li a {
+    padding: 0 30px;
+    font-size: 16px;
+    color: #050505;
+    border-left: 1px solid #CCC;
+}
+
+.recommend .mod {
+    float: right;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #00A4FF;
+}
+
+.box {
+    margin-top: 30px;
+}
+
+.box-hd {
+    height: 45px;
+    line-height: 45px;
+}
+
+.box-hd h3 {
+    float: left;
+    font-size: 20px;
+    color: #494949;
+}
+
+.box-hd a {
+    float: right;
+    font-size: 12px;
+    color: #A5A5A5;
+}
+
+/*可以给ul设置更大的宽度，这样就能装下足够的li而不换行了*/
+.box-bd ul {
+    width: 1225px;
+}
+
+.box-bd ul li {
+    width: 228px;
+    height: 270px;
+    background-color: #FFF;
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.box-bd ul li > img {
+    /*占据父盒子的100%*/
+    width: 100%;
+}
+
+.box-bd ul li em {
+    position: absolute;
+    right: -1px;
+    top: 4px;
+}
+
+.box-bd ul li h4 {
+    margin: 20px 20px 20px 25px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #050505;
+}
+
+.box-bd .info {
+    margin: 0 20px 0 25px;
+    font-size: 12px;
+    color: #999;
+}
+
+.box-bd .info span {
+    color: #FF7C2D;
+}
+
+.footer {
+    height: 300px;
+    background-color: #FFF;
+}
+
+.footer .w {
+    padding-top: 35px;
+}
+
+.copyright {
+    float: left;
+}
+
+.links {
+    float: right;
+}
+
+.copyright p {
+    font-size: 12px;
+    color: #666666;
+    margin: 20px 0 15px 0;
+}
+
+.copyright a {
+    display: block;
+    width: 118px;
+    height: 33px;
+    text-align: center;
+    line-height: 33px;
+    border: 1px solid #00A4FF;
+    color: #00A4FF;
+    font-size: 16px;
+}
+
+.links dl {
+    float: left;
+    margin-left: 100px;
+}
+
+.links dl dt {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.links dl dd a {
+    font-size: 12px;
+    color: #333;
+}

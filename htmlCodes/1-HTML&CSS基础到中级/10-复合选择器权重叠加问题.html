@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            /*伪类选择器权重为0001+0010*/
+            /*li:hover {*/
+            /*    */
+            /*}*/
+            /*权重为0010+0001*/
+            .nav li {
+                color: pink;
+            }
+            /*权重为0001+0001*/
+            ul li {
+                color: green;
+            }
+            /*权重仅为0001*/
+            li {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <ul class="nav">
+            <li>测试文本1</li>
+            <li>测试文本2</li>
+            <li>测试文本3</li>
+        </ul>
+    </body>
+</html>

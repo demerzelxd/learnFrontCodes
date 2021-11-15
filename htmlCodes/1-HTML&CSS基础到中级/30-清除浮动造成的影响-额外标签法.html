@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .father {
+                width: 500px;
+                background-color: pink;
+                margin: 0 auto;
+            }
+
+            .son {
+                width: 100px;
+                height: 100px;
+                /*若加上float，父盒子的背景色和大小会消失*/
+                /*因为浮动的元素不占位置，son都不占位置了，由于父盒子没有设置高度，所以父盒子的高度会消失*/
+                /*所以需要清除浮动，也就是清除浮动元素造成的*/
+                float: left;
+            }
+
+            .son1 {
+                background-color: lightseagreen;
+            }
+
+            .son2 {
+                background-color: skyblue;
+            }
+
+            /*额外标签法*/
+            .clear {
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <!--清除浮动的四种方法-->
+        <!--额外标签法（w3c推荐，但是要加新的标签，不太好），新添加的标签必须为块级元素-->
+        <!--父级添加overflow-->
+        <!--父级添加after伪元素-->
+        <!--父级添加双伪元素-->
+
+        <!--清除完浮动（clear）之后，父盒子就会根据子盒子的高度自动设置高度，从而不影响下方的标准流-->
+        <!--clear有left和right，一般只使用both-->
+        <div class="father">
+            <div class="son son1"></div>
+            <div class="son son2"></div>
+            <div class="son son2"></div>
+            <div class="son son2"></div>
+            <div class="son son2"></div>
+            <div class="son son2"></div>
+            <!--额外标签法在最后一个浮动元素后加上一个额外的标签-->
+            <div class="clear"></div>
+        </div>
+    </body>
+</html>

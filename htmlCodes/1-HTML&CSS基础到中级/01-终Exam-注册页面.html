@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>注册页面</title>
+    </head>
+    <body>
+        <h4>注册页面</h4>
+        <form action="hello.jsp" method="get" name="myForm">
+            <table width="500px">
+                <tr>
+                    <th>性别</th>
+                    <td>
+                        <input type="radio" name="sex" id="man" value="man">
+                        <label for="man">男</label>
+                        <input type="radio" name="sex" id="woman" value="woman">
+                        <label for="woman">女</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>生日</th>
+                    <td>
+                        <label for="year"></label>
+                        <select name="year" id="year">
+                            <option>--请选择年--</option>
+                            <option>2018</option>
+                            <option>2019</option>
+                            <option>2020</option>
+                            <option>2021</option>
+                        </select>
+                        <label for="month"></label>
+                        <select name="month" id="month">
+                            <option>--请选择月--</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                        <label for="day"></label>
+                        <select name="day" id="day">
+                            <option>--请选择日--</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="region">所在地区</label>
+                    </th>
+                    <td>
+                        <input type="text" name="region" id="region">
+                    </td>
+                </tr>
+                <tr>
+                    <th>婚姻状况</th>
+                    <td>
+                        <input type="radio" name="marry" id="no" value="no">
+                        <label for="no">未婚</label>
+                        <input type="radio" name="marry" id="yes" value="yes">
+                        <label for="yes">已婚</label>
+                        <input type="radio" name="marry" id="already" value="already">
+                        <label for="already">离婚</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="study">学历</label>
+                    </th>
+                    <td>
+                        <input type="text" name="study" id="study">
+                    </td>
+                </tr>
+                <tr>
+                    <th>爱好</th>
+                    <td>
+                        <input type="checkbox" name="hobby" id="video" value="video">
+                        <label for="video">看剧</label>
+                        <input type="checkbox" name="hobby" id="game" value="game">
+                        <label for="game">玩游戏</label>
+                        <input type="checkbox" name="hobby" id="music" value="music">
+                        <label for="music">听歌</label>
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <label for="self">
+                            自我介绍
+                        </label>
+                    </th>
+                    <td>
+                        <textarea name="self" id="self" cols="30" rows="5"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <input type="submit" value="点击注册">
+                        <br>
+                        <input type="checkbox" name="vote" id="vote" value="true" checked>
+                        <label for="vote">我同意注册条款</label>
+                        <br>
+                        <a href="/login">我是会员，立即登录</a>
+                        <br>
+                        <h5>我承诺</h5>
+                        <ul>
+                            <li>111111111</li>
+                            <li>222222222</li>
+                            <li>333333333</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

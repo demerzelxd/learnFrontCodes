@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                /*隐藏，隐藏之后盒子还存在于html结构，不占有原来位置*/
+                /*display: block除了转换为块级元素之外，还有显示元素的意思*/
+                /*display: none;*/
+
+                /*可见性，默认为inherit，与父级相关，visible可见，hidden隐藏*/
+                /*设置为hidden之后位置继续保留*/
+                /*visibility: hidden;*/
+
+                /*overflow对溢出部分显示或隐藏*/
+                /*默认visible*/
+                /*overflow: scroll;*/
+                /*scroll为溢出的部分显示滚动条，x和y滚动条都加，不溢出也显示滚动条*/
+                overflow: auto;
+                /*auto在需要的地方添加滚动条*/
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容这里是内容
+        </div>
+    </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .father {
+                width: 500px;
+                height: 500px;
+                margin: 0 auto;
+                background-color: indianred;
+                position: relative;
+            }
+            .box {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+                background-color: pink;
+            }
+
+            .box-after {
+                /*相对于body移动*/
+                position: absolute;
+                left: 100px;
+                top: 100px;
+                background-color: skyblue;
+            }
+
+            .box-other {
+                background-color: lightseagreen;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="father">
+            <!--会以最近一级带有定位的父元素来参考-->
+            父级
+            <div class="box box-origin">
+                原来的位置
+            </div>
+            <div class="box box-after">
+                绝对位移100px
+            </div>
+            <div class="box box-other">
+                别的元素
+            </div>
+        </div>
+    </body>
+</html>
