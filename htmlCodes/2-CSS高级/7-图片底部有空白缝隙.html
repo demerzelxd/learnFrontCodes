@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div {
+                border: 2px solid pink;
+            }
+            
+            img {
+                /*解决方法1：添加除基线之外的对齐*/
+                /*推荐！*/
+                vertical-align: middle;
+                
+                /*解决方法2，将图片转为块级元素*/
+                /*display: block;*/
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img src="./assets/ldh.jpg" alt="">
+            <!--ppp基线对齐产生的空白缝隙-->
+        </div>
+    </body>
+</html>

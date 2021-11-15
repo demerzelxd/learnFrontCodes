@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .single {
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+                margin: 100px auto;
+                
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            
+            .multi {
+                width: 100px;
+                height: 100px;
+                background-color: pink;
+                margin: 100px auto;
+                
+                overflow: hidden;
+                text-overflow: ellipsis;
+                /*弹性伸缩盒子模型显示*/
+                display: -webkit-box;
+                /*第几行显示省略号*/
+                -webkit-line-clamp: 3;
+                /*设置伸缩盒对象的子元素排列方式*/
+                -webkit-box-orient: vertical;
+            }
+        </style>
+    </head>
+    <body>
+        <!--先强制一行显示white-space:nowrap，normal为自动换行-->
+        <!--超出的部分隐藏-->
+        <!--文字用省略号代替溢出的部分-->
+        <div class="single">
+            显示好多好的好的好多好多好多好多好多好多
+        </div>
+        
+        <div class="multi">
+            显示好多好的好的好多好多好多好多好多好多
+        </div>
+    </body>
+</html>
