@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            ul li {
+                position: relative;
+                float: left;
+                list-style: none;
+                width: 150px;
+                height: 200px;
+                border: 1px solid red;
+                margin-left: -1px;
+            }
+
+            ul li:hover {
+                /*1、如果li沒有定位，则在hover时指定position: relative就可以优先级最高/
+                /*2、如果li本来就有relative定位，则在hover时指定z-index就可以优先级最高/
+                /*position: relative;*/
+                z-index: 1;
+                border-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <!--多个盒子都有边框，中间的边框会重合-->
+        <!--使用margin-left左移-->
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            input::placeholder {
+                /*修改placeholder的颜色*/
+                color: pink;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="">
+            <!--autofocus：页面加载完自动聚焦到input-->
+            <!--autocomplete：默认为打开状态，回显之前成功提交的数据-->
+            <input type="search" name="search" id="search" placeholder="请输入" autofocus autocomplete="off" required>
+            <!--multiple可以多选文件提交-->
+            <input type="file" multiple>
+            <input type="submit">
+        </form>
+    </body>
+</html>

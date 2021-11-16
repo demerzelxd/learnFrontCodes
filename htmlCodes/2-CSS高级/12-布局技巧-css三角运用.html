@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            .father {
+                width: 300px;
+                height: 100px;
+                border: 1px solid red;
+                text-align: center;
+                line-height: 100px;
+                font-weight: 700;
+            }
+
+            .now {
+                position: relative;
+                width: 175px;
+                height: 100%;
+                background-color: red;
+                /*浮动能使行内元素转为行内块*/
+                float: left;
+                color: #FFF;
+            }
+
+            /*.box {*/
+            /*    width: 0;*/
+            /*    height: 0;*/
+            /*    !*上边框增高并设置透明*!*/
+            /*    border-top: 100px solid transparent;*/
+            /*    border-right: 50px solid darkblue;*/
+            /*    !*左边和下边框宽度设为0*!*/
+            /*    border-bottom: 0;*/
+            /*    border-left: 0;*/
+            /*}*/
+
+            /*.box {*/
+            /*    !*该写法同上*!*/
+            /*    width: 0;*/
+            /*    height: 0;*/
+            /*    border-color: transparent darkblue transparent transparent;*/
+            /*    border-style: solid;*/
+            /*    border-width: 100px 50px 0 0;*/
+            /*}*/
+
+            .now i {
+                position: absolute;
+                width: 0;
+                height: 0;
+                right: 0;
+                top: 0;
+                border-color: transparent white transparent transparent;
+                border-style: solid;
+                border-width: 100px 50px 0 0;
+            }
+
+            .old {
+                font-size: 12px;
+                color: grey;
+                text-decoration: line-through;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="father">
+            <span class="now">
+                ￥1650
+                <i></i>
+            </span>
+            <span class="old">￥5600</span>
+        </div>
+
+    </body>
+</html>

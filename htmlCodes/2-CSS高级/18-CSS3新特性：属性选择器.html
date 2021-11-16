@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>属性选择器用中括号[]</title>
+        <style>
+            /*选择有value属性的input*/
+            input[value] {
+                color: pink;
+            }
+            /*选择value属性等于指定值得元素*/
+            input[value="这里有值"] {
+                color: red;
+            }
+            /*选择value属性以..为开头的元素*/
+            input[value^="这"] {
+                color: blue;
+            }
+            /*选择value属性以..为结尾的元素*/
+            input[value$="值"] {
+                color: yellow;
+            }
+            /*选择value属性包含..为结尾的元素*/
+            input[value*="有"] {
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <!--类选择器、属性选择器、伪类选择器的权重为10-->
+        <!--input[value]为11,是因为属性选择器10+标签选择器1=11-->
+        <input type="text" value="这里有值">
+        <input type="text">
+    </body>
+</html>
