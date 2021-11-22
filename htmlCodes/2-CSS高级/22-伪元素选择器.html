@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+            }
+
+            div::before {
+                content: 'Hello';
+            }
+
+            div::after {
+                content: '！！！！！';
+            }
+        </style>
+    </head>
+    <body>
+        <!--伪元素选择器可以利用css创建元素而不需要html标签-->
+        <!--::before表示在元素内部的前面插入内容-->
+        <!--::after表示在元素内部的后面插入内容-->
+        <!--创建的新元素为行内元素，该元素在文档树中找不到-->
+        <!--after和before都必须有content属性-->
+        <!--权重为1-->
+        <div>
+            World
+        </div>
+    </body>
+</html>

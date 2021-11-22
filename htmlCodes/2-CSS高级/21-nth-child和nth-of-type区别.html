@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            li:first-of-type {
+                background-color: pink;
+            }
+
+            li:last-of-type {
+                background-color: yellow;
+            }
+
+            li:nth-of-type(3) {
+                background-color: blue;
+            }
+
+            /*nth-child会把所有孩子都排列序号*/
+            /*执行的时候会先看序号1，确定了元素为p，但是又看到了div:nth-child(1)的div，与p矛盾*/
+            /*所以就不会选出任何元素*/
+            section div:nth-child(1) {
+                background-color: red;
+            }
+
+            /*能正确选出来第一个div*/
+            /*nth-child会把指定元素的盒子（div）排列序号*/
+            /*执行的时候找到第一个div即可*/
+            section div:nth-of-type(1) {
+                background-color: green;
+            }
+        </style>
+    </head>
+    <body>
+        <!--E:first-of-type表示指定类型元素的第一个-->
+        <!--E:last-of-type表示指定类型元素的最后一个-->
+        <!--E:nth-of-type(n)表示指定类型元素的第n个-->
+        <ol>
+            <li>111</li>
+            <li>222</li>
+            <li>333</li>
+            <li>444</li>
+            <li>555</li>
+            <li>666</li>
+            <li>777</li>
+            <li>888</li>
+        </ol>
+        <!--区别-->
+        <section>
+            <p>another</p>
+            <div>one</div>
+            <div>two</div>
+        </section>
+    </body>
+</html>

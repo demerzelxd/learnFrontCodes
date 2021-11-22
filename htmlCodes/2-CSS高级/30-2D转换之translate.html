@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            /*移动盒子的几种方式：定位、外边距、2d转换*/
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                /*一定要带单位*/
+                /*transform: translate(100px, 100px);*/
+                /*50%是相对于自身的宽高*/
+                transform: translate(50%, 50%);
+            }
+        </style>
+    </head>
+    <body>
+        <!--转换可以实现元素的位移translate、旋转rotate、缩放scale等-->
+        <!--2d移动不会影响其他元素的位置。对行内元素使用2d转换没有效果-->
+        <!--transform: translate(x, y)相当于transform: translateX(n)和transform: translateY(n)-->
+        <div></div>
+    </body>
+</html>

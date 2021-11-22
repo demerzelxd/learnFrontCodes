@@ -1,0 +1,22 @@
+/*公共的CSS*/
+/*版心宽度*/
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/*左浮动*/
+.fl {
+    float: left;
+}
+
+/*右浮动*/
+.fr {
+    float: right;
+}
+
+/*快捷导航模块*/
+.shortcut {
+    height: 31px;
+    background-color: #F1F1F1;
+}

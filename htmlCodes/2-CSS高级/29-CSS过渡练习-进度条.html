@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .father {
+                width: 200px;
+                height: 16px;
+                border: 1px solid red;
+                border-radius: 9px;
+                padding: 1px;
+            }
+
+            .son {
+                width: 0;
+                height: 100%;
+                border-radius: 8px;
+                background-color: red;
+                /*增加过渡*/
+                transition: width .5s;
+            }
+
+            .father:hover .son {
+                width: 100%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div>
+            <div class="father">
+                <div class="son">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

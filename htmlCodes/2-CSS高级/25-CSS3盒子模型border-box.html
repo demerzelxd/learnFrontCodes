@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                /*border和padding都会撑大盒子*/
+                border: 10px solid red;
+                padding: 10px;
+                /*可以通过box-sizing指定盒子模型，可选（默认）content-box和border-box*/
+                /*border-box不会撑开盒子，而是向内部凹陷*/
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>

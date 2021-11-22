@@ -5,12 +5,13 @@
         <title>Title</title>
         <style>
             /*父级添加双伪元素，在前后增加盒子*/
-            .clearfix:before, .clearfix:after {
+            .clearfix::before, .clearfix::after {
                 content: "";
+                /*转换为块级元素并在一行显示*/
                 display: table;
             }
 
-            .clearfix:after {
+            .clearfix::after {
                 clear: both;
             }
 
