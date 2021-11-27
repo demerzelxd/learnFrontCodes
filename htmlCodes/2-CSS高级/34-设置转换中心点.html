@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                margin: 100px auto;
+                transition: all 1s;
+                transform-origin: left bottom;
+            }
+
+            .box:hover {
+                transform: rotate(360deg);
+            }
+        </style>
+    </head>
+    <body>
+        <!--transform-origin: x y-->
+        <!--注意x和y用空格隔开-->
+        <!--默认x和y是元素中心50% 50%-->
+        <!--还可以给xy设置像素或者方位名词top bottom center...-->
+        <div class="box"></div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .father {
+                width: 200px;
+                height: 200px;
+                margin: 50px auto;
+                border: 1px solid pink;
+                /*可以在一开始隐藏before元素*/
+                overflow: hidden;
+            }
+
+            .father::before {
+                content: '测试';
+                width: 100%;
+                height: 100%;
+                display: block;
+                background-color: hotpink;
+                transform: rotate(180deg);
+                transform-origin: left bottom;
+                transition: all .5s;
+            }
+
+            .father:hover::before {
+                transform: rotate(0);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="father"></div>
+    </body>
+</html>
