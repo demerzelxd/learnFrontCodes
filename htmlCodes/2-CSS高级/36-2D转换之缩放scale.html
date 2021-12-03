@@ -3,10 +3,34 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+        <style>
+            .first {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                margin: 100px auto;
+                /*设置中心点*/
+                transform-origin: left top;
+            }
+
+            .first:hover {
+                transform: scale(2, 2);
+                /*transform: scale(.5, .5);*/
+            }
+
+            .second {
+                width: 200px;
+                height: 200px;
+                background-color: indianred;
+                margin: 100px auto;
+            }
+        </style>
     </head>
     <body>
         <!--transform: scale(x, y)-->
         <!--scale(2,2)表示宽和高都放大到2倍-->
         <!--默认是以中心点缩放，不会影响其他盒子-->
+        <div class="first"></div>
+        <div class="second"></div>
     </body>
 </html>

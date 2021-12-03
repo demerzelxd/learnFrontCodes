@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            @keyframes move {
+                /*开始状态*/
+                /*0%相当于from*/
+                0% {
+                    transform: translateX(0);
+                }
+                /*结束状态*/
+                /*100%相当于to*/
+                to {
+                    transform: translateX(1000px);
+                }
+            }
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                /*调用动画*/
+                animation-name: move;
+                /*持续时间*/
+                animation-duration: 2s;
+            }
+        </style>
+    </head>
+    <body>
+        <!--animation动画，不需要触发也可以一直执行-->
+        <!--页面一打开，一个盒子从左走到右-->
+        <!--先用 @keyframes 动画名称 ，定义动画，再调用动画-->
+        <!--0%是动画的开始，100%是动画的结束，这称为动画序列-->
+
+        <div></div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div {
+                /*实现打字机效果*/
+                /*字体大小设为20px，则到200px的时候，正好每次蹦出来一个字*/
+                font-size: 20px;
+                /*让文字强制一行内展示*/
+                white-space: nowrap;
+                overflow: hidden;
+
+                width: 0;
+                height: 30px;
+                background-color: pink;
+                /*指定动画*/
+                /*从0到200px用十步*/
+                animation: move steps(10) 5s forwards;
+            }
+
+            @keyframes move {
+                0% {
+                    width: 0;
+                }
+
+                100% {
+                    width: 200px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!--animation-timing-function默认是ease，还可以填步长steps()-->
+        <div>这里是十个字符啊啊啊</div>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            @keyframes move {
+                /*开始状态*/
+                /*0%相当于from*/
+                0% {
+                    transform: translate(0, 0);
+                }
+
+                /*总共10s，在2.5s的时候到达该帧*/
+                25% {
+                    transform: translate(1000px, 0);
+                }
+
+                50% {
+                    transform: translate(1000px, 300px);
+                }
+
+                75% {
+                    transform: translate(0, 300px);
+                }
+
+                100% {
+                    transform: translate(0, 0);
+                }
+            }
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                /*调用动画*/
+                animation-name: move;
+                /*持续时间*/
+                animation-duration: 10s;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>
