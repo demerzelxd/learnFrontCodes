@@ -4,12 +4,15 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <style>
+            html, body {
+                height: 100%
+            }
+            
             body {
-                height: 550px;
                 position: relative;
                 background: #CCC url(./media/bg1.png) no-repeat fixed bottom;
             }
-
+            
             .bear {
                 position: absolute;
                 left: 0;
@@ -21,22 +24,22 @@
                 /*元素可以添加多个动画，用逗号分割*/
                 animation: move 1s steps(8) infinite, pos 3s linear forwards;
             }
-
+            
             @keyframes move {
                 0% {
                     background-position: 0 0;
                 }
-
+                
                 100% {
                     background-position: -1600px 0;
                 }
             }
-
+            
             @keyframes pos {
                 0% {
                     left: 0;
                 }
-
+                
                 100% {
                     left: 50%;
                     transform: translateX(-50%);
