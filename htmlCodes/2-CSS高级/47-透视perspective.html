@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                margin: 100px auto;
+                transform: translate3d(0, 0, 100px);
+            }
+
+            /*透视写在被观察元素的父元素上*/
+            body {
+                perspective: 500px;
+            }
+        </style>
+    </head>
+    <body>
+        <!--透视的单位是像素-->
+        <!--透视也叫视距，就是人眼到屏幕的距离，视距越小成像越大-->
+        <!--透视写在父元素上-->
+        <div></div>
+    </body>
+</html>

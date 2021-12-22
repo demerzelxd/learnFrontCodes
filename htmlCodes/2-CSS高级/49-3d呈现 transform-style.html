@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            body {
+                perspective: 500px;
+            }
+
+            .father {
+                width: 200px;
+                height: 200px;
+                position: relative;
+                margin: 100px auto;
+                transition: all 1s;
+                /*开启三维立体环境，默认为flat不开启*/
+                transform-style: preserve-3d;
+            }
+
+            .father:hover {
+                transform: rotateY(180deg);
+            }
+
+            .father div {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: pink;
+            }
+
+            .father div:last-child {
+                background-color: indianred;
+                transform: rotateX(60deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="father">
+            <div></div>
+            <div></div>
+        </div>
+    </body>
+</html>

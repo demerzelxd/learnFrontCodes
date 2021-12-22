@@ -8,12 +8,16 @@
                 width: 200px;
                 height: 200px;
                 background-color: pink;
+                /*x,y,x不能省略，如果没有就写0*/
                 transform: translate3d(100px, 100px, 100px);
+                /*相当于transform: translateX(100px) translateY(100px) translateZ(100px);*/
             }
         </style>
     </head>
     <body>
         <!--z轴往外是正值，往里是负值-->
+        <!--注意！！-->
+        <!--y轴向下是正值-->
         <!--translate3d，rotate3d，透视perspective，3d呈现transform-style-->
         <!--translateZ一般用px单位-->
         <div></div>
