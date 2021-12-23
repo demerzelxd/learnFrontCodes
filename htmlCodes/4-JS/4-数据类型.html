@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            // 相同的变量可以存放不同的类型
+            // 变量的类型由当前等号右边的值决定
+            // 此时num属于Number类型
+            var num = 10;
+            console.log(typeof num);
+            // 此时num属于String类型
+            num = '111';
+            console.log(typeof num);
+
+            console.log('---------Number类型--------')
+            // 简单数据类型 Number（既可以整数也可以小数，默认0） String（默认''） Boolean（默认false） Undefined Null
+            // 复杂数据类型 Object
+            // 八进制
+            var num1 = 0o10;
+            // 输出8
+            console.log(num1);
+            // 十六进制
+            var num2 = 0x10;
+            // 输出16
+            console.log(num2);
+            // 数字的最大值和最小值
+            console.log(Number.MAX_VALUE)
+            console.log(Number.MIN_VALUE)
+            // 三个特殊数字值
+            // 最大数字*2就是无穷大Infinity
+            console.log(Number.MAX_VALUE * 2)
+            console.log(-Number.MAX_VALUE * 2)
+            // 非数字
+            console.log('aaa' - 111);
+            // isNaN验证是否为非数字
+            console.log(isNaN('aaa' - 111))
+
+            console.log('---------String类型--------')
+            // 结果为1212，加号只进行拼接
+            console.log('12' + 12)
+            // 结果为6
+            console.log('12' - 6)
+
+            console.log('---------Boolean类型--------')
+            // 布尔类型Boolean在参与加法时，true当做1，false当做0
+            console.log(true + 1)
+
+            console.log('---------Undefined类型--------')
+            console.log(undefined + '111')
+            // 结果为NaN
+            console.log(undefined + 1)
+
+            console.log('---------Null类型--------')
+            console.log(null + '111')
+            // 结果为1
+            console.log(null + 1)
+            // 结果为NaN
+            console.log(null + undefined)
+            // 结果为Object
+            console.log(typeof null)
+
+            console.log('---------数据类型转换--------')
+            // 转为字符串、数字、布尔
+            // 转为字符串的方法
+            var numT = 1;
+            // 方法1
+            console.log(numT.toString())
+            // 方法2
+            console.log(String(numT))
+            // 方法3
+            console.log(numT + '')
+
+            // 转换为数字型
+            var numS = '111';
+            var numF = '111.111';
+            // 方法1
+            // 截断取整
+            console.log(parseInt(numS))
+            console.log(parseFloat(numF))
+            // 特例，会自动去除单位，前提是数字在前
+            console.log(parseInt('120px'))
+            // 120
+            console.log(parseInt('120tt'))
+            // NaN
+            console.log(parseInt('tt120tt'))
+            // 120
+            console.log(parseInt('120tt120'))
+            // 方法2
+            console.log(Number(numS))
+            console.log(Number(numF))
+            // 方法3
+            console.log(numS - 0)
+            console.log(numS * 1)
+            console.log(numF - 0)
+            console.log(numF * 1)
+
+            // 转换为布尔型，代表空、否定的值会被转为false
+            // false
+            console.log(Boolean(''))
+            // false
+            console.log(Boolean(0))
+            // false
+            console.log(Boolean(NaN))
+            // false
+            console.log(Boolean(null))
+            // false
+            console.log(Boolean(undefined))
+            // true
+            console.log(Boolean('测试'))
+            // true
+            console.log(Boolean(123))
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

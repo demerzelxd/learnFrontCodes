@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            // var input = prompt('请输入');
+            // 同时声明多个变量
+            var age = 10,
+                address = 'nowhere',
+                times = 1;
+            // 只声明不赋值，打印出的结果为undefined
+            var noVal;
+            console.log(noVal);
+            // 不声明，只赋值，仍可打印出，会变为全局变量，但不推荐
+            noDeclared = 123;
+            console.log(noDeclared);
+            // 对于某些特殊的单词，不声明不赋值，打印出来不会报错，为空
+            // name对于谷歌浏览器有特殊意义，所以可以打印
+            // 不要直接使用name当做变量名
+            console.log(name);
+            // 变量名允许$与_，放在首位也可以
+
+            // 交换两个变量的值
+            var v1 = 1;
+            var v2 = 2;
+            // 交换
+            var temp = v1;
+            v1 = v2;
+            v2 = temp;
+            console.log(v1);
+            console.log(v2);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
