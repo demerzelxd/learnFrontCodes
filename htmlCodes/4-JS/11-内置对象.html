@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            // 内置对象Math、 Date 、Array、String等
+            // Math.PI		 			// 圆周率
+            // Math.floor() 	 		// 向下取整
+            // Math.ceil()             // 向上取整
+            // Math.round()            // 四舍五入就近取整，会往大了取   注意3.5 -> 4  -3.5 -> -3
+            // Math.abs()		 		// 绝对值
+            // Math.max()/Math.min()	// 求最大和最小值
+            // Math.random()            // 方法可以随机返回一个小数，其取值范围是 [0，1)
+
+            var now = new Date();
+            console.log(now);
+            // 日期初始化
+            var date1 = new Date(2021, 10, 1);
+            console.log(date1);  // 返回的是11月不是10月
+
+            var date2 = new Date('2021-10-1');
+            console.log(date2);  // 返回的是10月
+            // 日期格式化
+            var date = new Date();
+            console.log(date.getFullYear()); // 返回当前日期的年 2021
+            console.log(date.getMonth() + 1);  //返回的月份小一个月 记得月份 +1
+            console.log(date.getDate()); //返回的是几号
+            console.log(date.getDay());  //周一返回1 周6返回六 周日返回0
+
+            // 数组
+            var arr = [1, 2];
+            var obj = {};
+            // instanceof 运算符，可以判断一个对象是否属于某种类型
+            console.log(arr instanceof Array); // true
+            console.log(obj instanceof Array); // false
+            console.log(Array.isArray(arr));   // true
+            console.log(Array.isArray(obj));   // false
+
+            var arr1 = [1, 2, 3];
+            arr1.push(4, '111');
+            console.log(arr1);
+            // push返回结果是新数组的长度
+            console.log(arr1.push(4, '111'));
+            console.log(arr1);
+
+            // 2. unshift 在我们数组的开头 添加一个或者多个数组元素
+            arr1.unshift('red', 'blue');
+            console.log(arr1);
+
+            // pop() 删除数组的最后一个元素，一次只能删除一个元素
+            arr1.pop(); //不加参数
+            // shift() 删除数组的第一个元素,一次只能删除一个元素
+            arr1.shift(); //不加参数
+            console.log(arr1);
+
+            // 1.翻转数组
+            var arr2 = ['pink', 'red', 'blue'];
+            arr2.reverse();
+            console.log(arr2);
+
+            // 数组排序(冒泡排序)
+            var arr4 = [1, 64, 9, 61];
+            arr4.sort(function (a, b) {
+                    // return b - a;  //降序
+                    return a - b; //升序
+                }
+            )
+
+            // 数组转化为字符串
+            // toString()	把数组转换成字符串，逗号分隔每一项1,2,3
+            // join(‘分隔符’)	方法用于把数组中的所有元素转换为一个字符串
+            console.log(arr2.join('-')); //  green-blue-red
+
+            // concat()	连接两个或多个数组 不影响原数组	返回一个新的数组
+            // var arrOri1 = [1, 2];
+            // var arrOri2 = [3, 4];
+            // console.log(arrOri1.concat(arrOri2))
+
+            // slice()	数组截取slice(begin,end)	返回被截取项目的新数组
+            var arrOri = [1, 2, 3, 4]
+            console.log(arrOri.slice(1, 2))
+            console.log(arrOri)
+            // splice()	数组删除splice(第几个开始要删除的个数)	返回被删除项目的新数组，这个会影响原数组
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

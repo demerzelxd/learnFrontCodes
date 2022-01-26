@@ -4,8 +4,6 @@
         <meta charset="UTF-8">
         <title>Title</title>
         <script>
-            var num1 = 0.1;
-            var num2 = 0.2;
             // 不能直接拿着浮点数相加
             // 0.30000000000000004
             console.log(0.1 + 0.2)
@@ -21,6 +19,28 @@
             console.log(11 === '11')
             console.log(1 == true)
             console.log(1 === true)
+
+            // 不是布尔值的情况下，进行与或非操作
+            // 0 '' null undefined NaN都是假
+            // &&短路操作，如果a为真，则返回b，故输出456
+            console.log(123 && 456)
+            // &&短路操作，如果a为假0，则返回a，故输出0
+            console.log(0 && 456)
+            // ||短路操作，如果a为真，则返回a，故输出123
+            console.log(123 || 456)
+            // ||短路操作，如果a为假0，则返回b，故输出456
+            console.log(0 || 456)
+            var ran = 0;
+            // 打印出123
+            console.log(123 || ran++)
+            // ran++根本就没有执行，故打印出0
+            console.log(ran)
+            // 非
+            // 打印出false
+            console.log(!222)
+            // 打印出true
+            console.log(!undefined)
+            console.log(!'')
         </script>
     </head>
     <body>

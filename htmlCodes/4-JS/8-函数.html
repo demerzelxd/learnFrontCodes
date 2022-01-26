@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            // 形参的默认值为 undefined
+            function sum(n1, n2) {
+                console.log(n1 + n2)
+            }
+
+            // 只赋值了前两个
+            // sum(1, 2, 3, 4)
+            // 实参个数小于形参个数，则n1=1，n2=undefined，执行结果为NaN
+            sum(1)
+
+            // 当函数没有return时，返回的为undefined
+            function returnValue() {
+                // return返回多个值时，以最后一个为准
+                return '111', '222';
+            }
+
+            console.log(returnValue());
+
+            // 当我们不确定有多少个参数传递的时候，可以用 arguments 来获取。
+            // 在 JavaScript 中，arguments 实际上它是当前函数的一个内置对象。
+            // 所有函数都内置了一个 arguments 对象，arguments 对象中存储了传递的所有实参。
+            // 函数声明
+            function fn() {
+                console.log(arguments);  //里面存储了所有传递过来的实参
+                console.log(arguments.length); // 3
+                console.log(arguments[2]); // 3
+            }
+
+            // 函数调用
+            fn(1, 2, 3);
+
+            // function fn () 调用函数的代码既可以放到声明函数的前面，也可以放在声明函数的后面
+            // 函数表达式（匿名函数）
+            var fn1 = function () {
+                console.log('999')
+            };
+            fn1();
+            // 函数表达式var fn1 = function(){} 函数调用的代码必须写到函数体后面
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

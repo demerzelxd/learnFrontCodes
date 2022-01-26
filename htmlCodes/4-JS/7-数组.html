@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            // 数组为Object类型
+            // 利用 new 创建数组
+            var arr1 = new Array();
+            console.log(typeof arr1)
+            // 利用数组字面量创建数组
+            var arr2 = [];
+            console.log(typeof arr2)
+            // 数组中可以存放任意类型的数据，例如字符串，数字，布尔值等
+            var arr3 = ['小白', 12, true, 28.9];
+            console.log(arr3)
+
+            // 数组扩容
+            // 通过修改 length 长度新增数组元素
+            var arr4 = ['red', 'green', 'blue', 'pink'];
+            // 数组越界为undefined
+            console.log(arr4[5])
+            // 扩容为10个
+            arr4.length = 10;
+            // 未初始化值，为undefined
+            console.log(arr4[9])
+
+            // 通过修改数组索引新增数组元素
+            var arr5 = ['red', 'green', 'blue', 'pink'];
+            arr5[4] = 'yellow';
+            console.log(arr5)
+
+            // 排序，默认是按照字符串顺序排序的
+            var arr6 = [4, 5, 1, 9, 10]
+            arr6.sort();
+            // 得到[1, 10, 4, 5, 9]
+            console.log(arr6)
+            // 重写sort的比值方法，升序
+            arr6.sort(
+                function (a, b) {
+                    return a - b;
+                }
+            );
+            // 或者
+            arr6.sort(
+                function (a, b) {
+                    if (a < b) {
+                        return -1;
+                    } else if (a > b) {
+                        return 1;
+                    } else {
+                        return 0;
+                    }
+                }
+            );
+            console.log(arr6)
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

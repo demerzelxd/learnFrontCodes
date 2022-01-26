@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            // 所有的事物都是对象，例如字符串、数值、数组、函数等
+            // 对象由属性和方法组成
+            // 利用字面量创建对象
+            var star = {
+                name: 'pink',
+                age: 18,
+                sayHi: function () {
+                    console.log('hello');
+                }
+            };
+            console.log(star.name)
+            console.log(star['age'])
+            star.sayHi()
+            // 利用 new Object创建对象
+            var obj = new Object(); //创建了一个空的对象
+            obj.name = '张三丰';
+            obj.age = 18;
+            obj.sayHi = function () {
+                console.log('hello');
+            }
+
+            // 利用构造函数创建对象，类似java的类
+            function Star(uname, age, sex) {
+                this.name = uname;
+                this.age = age;
+                this.sex = sex;
+                this.sing = function (song) {
+                    console.log(song);
+                }
+            }
+
+            var ldh = new Star('刘德华', 18, '男');
+            console.log(typeof ldh) // object对象，调用函数返回的是对象
+            console.log(ldh.name);
+            console.log(ldh['sex']);
+            ldh.sing('冰雨');
+
+            // 遍历对象的属性
+            for (let starKey in star) {
+                console.log(starKey)
+                console.log(star[starKey])
+            }
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

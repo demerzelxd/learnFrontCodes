@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            // js没有{}作用域的限制
+            // if (true) {
+            //     var num = 123;
+            //     console.log(num);	// 123
+            // }
+            // console.log(num);		// 123
+
+            // 预解析，js引擎会把js里面所有的 var 还有 function 提升到当前作用域的最前面
+            // 只会发生在通过 var 定义的变量和 function 上
+            // 学习预解析能够让我们知道为什么在变量声明之前访问变量的值是 undefined，为什么在函数声明之前就可以调用函数
+
+            // 变量预解析
+            // console.log(num1);  // 结果是多少？
+            // var num1 = 10;
+            //相当于执行了以下代码
+            // var num1;		// 变量声明提升到当前作用域最上面
+            // console.log(num1);
+            // num1 = 10;		// 变量的赋值不会提升
+
+            // 函数预解析
+            // fn1();				//11
+            // function fn1() {
+            //     console.log('11');
+            // }
+            // 相当于
+            // function fn1() {
+            //     console.log('11');
+            // }
+            // fn1();				//11
+
+            // 匿名函数(函数表达式方式)预解析:若我们把函数调用放在函数声明上面
+            // fn();
+            // var fn = function () {
+            //     console.log('22'); // 报错
+            // }
+            //相当于执行了以下代码
+            // 变量提升
+            // var fn;
+            // fn();      //fn没赋值，没这个，报错
+            // fn = function () {
+            //     console.log('22'); //报错
+            // }
+
+            // 案例1
+            // var num2 = 10;
+            // fun();
+            // function fun() {
+            //     console.log(num2);	//undefined
+            //     var num2 = 20;
+            // }
+
+            // 最终结果是 undefined
+            // 上述代码相当于执行了以下操作
+            // var num2;
+            // 函数声明提到上面
+            // function fun() {
+            //     var num2;
+            //     console.log(num2);
+            //     num2 = 20;
+            // }
+            // num2 = 10;
+            // fun();
+
+            // 案例2
+            // var num3 = 10;
+            // function fn2(){
+            //     console.log(num3);		//undefined
+            //     var num3 = 20;
+            //     console.log(num3);		//20
+            // }
+            // fn2();
+            // 最终结果是 undefined 20
+            // 相当于执行了
+            // var num3 = 10;
+            // function fn2(){
+            //     var num3
+            //     console.log(num3);		//undefined
+            //     num3 = 20;
+            //     console.log(num3);		//20
+            // }
+            // fn2();
+
+            // 案例3
+            // var a = 18;
+            // f1();
+            //
+            // function f1() {
+            //     var b = 9;
+            //     console.log(a);
+            //     console.log(b);
+            //     var a = '123';
+            // }
+            // 相当于执行了
+            // var a = 18;
+            // function f1() {
+            //     var b;
+            //     var a;
+            //     b = 9;
+            //     console.log(a); // undefined
+            //     console.log(b); // 9
+            //     a = '123';
+            // }
+            // f1();
+
+            // 案例4
+            f3();
+            console.log(c);
+            console.log(b);
+            console.log(a);
+            function f3() {
+                var a = b = c = 9;
+                // 相当于 var a = 9; b = 9;c = 9;  b和c的前面没有var声明,当全局变量看
+                // 集体声明 var a = 9,b = 9,c = 9;
+                console.log(a);
+                console.log(b);
+                console.log(c);
+            }
+            // 相当于执行了
+            // function f3() {
+            //     var a;
+            //     a = b = c = 9;
+            //     console.log(a);	//9
+            //     console.log(b);	//9
+            //     console.log(c);	//9
+            // }
+            // f3();
+            // console.log(c);	//9
+            // console.log(b);	//9
+            // console.log(a);	//报错 a是局部变量
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
