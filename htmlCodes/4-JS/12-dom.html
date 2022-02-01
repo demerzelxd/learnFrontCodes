@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <!--文档：一个页面就是一个文档，DOM中使用document来表示-->
+        <!--元素：页面中的所有标签都是元素，DOM中使用 element 表示-->
+        <!--节点：网页中的所有内容都是节点（标签，属性，文本，注释等），DOM中使用node表示-->
+        <!--DOM 把以上内容都看做是对象-->
+    
+        <!--获取页面中的元素可以使用以下几种方式:-->
+        <!--根据ID获取 getElementById-->
+        <!--根据标签名获取 getElementByTagName-->
+        <!--通过 HTML5 新增的方法获取 getElementsByClassName querySelector(根据指定选择器返回第一个元素对象)
+        querySelectorAll(根据指定选择器返回所有元素对象),querySelector 和 querySelectorAll 里面的选择器需要加符号,比如: document.querySelector('#nav');-->
+        <!--特殊元素获取-->
+        
+        <!--使用 getElementById() 方法可以获取带ID的元素对象-->
+        <div id="time" custom="111">2019-9-9</div>
+        <script>
+            // 因为文档页面从上往下加载，所以得先有标签，所以script写在标签下面
+            var timer = document.getElementById('time');
+            console.log(timer)
+            // 使用 console.dir() 可以打印我们获取的元素对象，更好的查看对象里面的属性和方法
+            console.dir(timer)
+            // 获取特殊元素
+            // 返回body元素对象
+            console.dir(document.body);
+            // 返回html元素对象
+            console.dir(document.documentElement);
+            
+            // 事件
+            var div = document.querySelector('div');
+            // 2.绑定事件 注册事件
+            // div.onclick
+            // 3.添加事件处理程序
+            div.onclick = function() {
+                console.log('我被选中了');
+            }
+            
+            // 改变元素内容element.innerText, element.innerHTML
+            // 改变元素属性img.src = "xxx"; input.value = "xxx";input.type = "xxx";input.checked = "xxx";input.selected = true / false;input.disabled = true / false;
+            // 改变样式属性1、行内样式操作 div.style.backgroundColor = 'pink';div.style.width = '250px';
+            // 2、类名样式操作div.className = 'addOn origin'，修改类名，相当于新增了一个类addOn
+            
+            // 排他思想
+            // 如果有同一组元素，我们想要点击的按钮变色
+            // 所有元素全部清除样式（干掉其他人）
+            // 给当前元素设置样式 （留下我自己）
+            // 注意顺序不能颠倒，首先干掉其他人，再设置自己
+            
+            // var btns = document.getElementsByTagName('button');
+            // // btns得到的是伪数组  里面的每一个元素 btns[i]
+            // for (var i = 0; i < btns.length; i++) {
+            //     btns[i].onclick = function() {
+            //         // (1) 我们先把所有的按钮背景颜色去掉  干掉所有人
+            //         for (var i = 0; i < btns.length; i++) {
+            //             btns[i].style.backgroundColor = '';
+            //         }
+            //         // (2) 然后才让当前的元素背景颜色为pink 留下我自己
+            //         this.style.backgroundColor = 'pink';
+            //     }
+            // }
+            
+            // 自定义属性
+            console.log(timer.id); //内置属性id
+            console.log(timer.getAttribute('custom')); // 自定义属性custom
+
+            // timer.id = 'xxx'
+            // timer.setAttribute('custom', '222')
+            
+            // 移除属性
+            // timer.removeAttribute('custom')
+            
+            // H5自定义属性
+            // H5规定自定义属性 data-开头作为属性名并赋值
+            // 获取 element.getAttribute('data-index')
+            // 也可以用H5新增的：element.dataset.index 或element.dataset['index'] IE11才开始支持
+            
+            // 节点操作
+            // 网页中的所有内容都是节点（标签、属性、文本、注释等）
+            // 一般的，节点至少拥有nodeType（节点类型）、nodeName（节点名称）和nodeValue（节点值）这三个基本属性。
+            // 元素节点：nodeType 为1
+            // 属性节点：nodeType 为2
+            // 文本节点：nodeType 为3(文本节点包括文字、空格、换行等)
+            // 我们在实际开发中，节点操作主要操作的是元素节点
+            // 利用 DOM 树可以把节点划分为不同的层级关系，常见的是父子兄层级关系。
+            
+            // parentNode属性可以返回某节点最近的一个父结点
+            // parentNode.childNodes(标准)包含指定节点的子节点的集合
+            // parentNode.children，返回所有的子元素节点，只返回子元素节点，其余节点不返回
+            // 如果想要第一个子元素节点，可以使用 parentNode.children[0]
+            // 如果想要最后一个子元素节点，可以使用parentNode.children[parentNode.children.length - 1]
+            // parentNode.firstChild和parentNode.lastChild不仅只有元素节点，不使用
+            // 下一个兄弟节点nextSibling和previousSibling不仅只有元素节点，不使用
+            // 使用自定义的方法来取
+            // function getNextElementSibling(element) {
+            //     var el = element;
+            //     while(el = el.nextSibling) {
+            //         if(el.nodeType === 1){
+            //             return el;
+            //         }
+            //     }
+            //     return null;
+            // }
+            // 创建节点
+            // document.createElement('tagName');
+            // 添加节点
+            // node.appendChild() 方法将一个节点添加到指定父节点的子节点列表末尾。类似于 CSS 里面的 after 伪元素。
+            // node.insertBefore() 方法将一个节点添加到父节点的指定子节点前面。类似于 CSS 里面的 before 伪元素。
+            // ul.insertBefore(toBeInsEl, ul.children[0]);
+            // node.removeChild(child)方法从 DOM 中删除一个子节点，返回删除的节点
+            
+            // node.cloneNode()方法返回调用该方法的节点的一个副本。 也称为克隆节点/拷贝节点
+            // 如果括号参数为空或者为 false ，则是浅拷贝，即只克隆复制节点本身，不克隆里面的子节点
+            // 如果括号参数为 true ，则是深度拷贝，会复制节点本身以及里面所有的子节点
+
+            // 三种动态创建元素的区别
+            // document.write() 直接将内容写入页面的内容流，但是文档流执行完毕，则它会导致页面全部重绘
+            // element.innerHTML 内容写入某个 DOM 节点，不会导致页面全部重绘
+            // document.createElement() 创建多个元素效率稍低一点点，但是结构更清晰
+            
+            // 拼接字符串的方式效率低，不如定义数组然后用 arr.join('')
+
+            // 对于DOM操作，我们主要针对子元素的操作，主要有创建 增 删 改 查 属性操作 事件操作
+
+            // 创建
+            // document.write
+            // innerHTML
+            // createElement
+            // 增
+            // appendChild
+            // insertBefore
+            // 删
+            // removeChild
+            // 改
+            // 主要修改dom的元素属性，dom元素的内容、属性、表单的值等
+            // 修改元素属性：src、href、title 等
+            // 修改普通元素内容：innerHTML、innerText
+            // 修改表单元素：value、type、disabled
+            // 修改元素样式：style、className
+            // 查
+            // 主要获取查询dom的元素
+            // DOM提供的API方法：getElementById、getElementsByTagName (古老用法，不推荐)
+            // H5提供的新方法：querySelector、querySelectorAll (提倡)
+            // 利用节点操作获取元素：父(parentNode)、子(children)、兄(previousElementSibling、nextElementSibling)
+            // 属性操作
+            // 主要针对于自定义属性
+            // setAttribute：设置dom的属性值
+            // getAttribute：得到dom的属性值
+            // removeAttribute：移除属性
+            
+            // 事件高级
+            // 绑定事件
+            
+            // 传统注册方式利用 on 开头的事件: onclick，可以在html也可以在js，唯一性，一样的会覆盖
+            // 方法监听注册方式 addEventListener() 同一个元素同一个事件可以注册多个监听器 按注册顺序依次执行
+            // eventTarget.addEventListener(type,listener[,useCapture])方法将指定的监听器注册到 eventTarget（目标对象）上
+            // btn.addEventListener('click', function() {
+            //     alert(22);
+            // })
+            
+            // 解绑事件
+            // 传统事件删除方式eventTarget.onclick = null;
+            // eventTarget.removeEventListener(type,listener[,useCapture]);
+            // btn.addEventListener('click',fn);
+            // function fn(){
+            //     alert(22);
+            //     btn.removeEventListener('click',fn);
+            // }
+            
+            // DOM事件流
+            // 事件流描述的是从页面中接收事件的顺序
+            // 事件捕获 -> 当前目标 -> 事件冒泡
+            // 我们向水里面扔一块石头，首先它会有一个下降的过程，这个过程就可以理解为从最顶层向事件发生的最具体元素（目标点）的捕获过程；之后会产生泡泡，会在最低点（ 最具体元素）之后漂浮到水面上，这个过程相当于事件冒泡。
+            // 事件捕获：document -> html -> body -> father -> son
+            // 如果addEventListener 第三个参数是 true 那么则处于捕获阶段
+            // var son = document.querySelector('.son');
+            // son.addEventListener('click', function() {
+            //     alert('son');
+            // }, true);
+            // var father = document.querySelector('.father');
+            // father.addEventListener('click', function() {
+            //     alert('father');
+            // }, true);
+            // 先father再son
+
+            // 事件冒泡：son -> father ->body -> html -> document
+            // 如果addEventListener 第三个参数是 false 或者 省略 那么则处于冒泡阶段，默认false
+            // var son = document.querySelector('.son');
+            // son.addEventListener('click', function() {
+            //     alert('son');
+            // }, false);
+            // var father = document.querySelector('.father');
+            // father.addEventListener('click', function() {
+            //     alert('father');
+            // }, false);
+            // document.addEventListener('click', function() {
+            //     alert('document');
+            // })
+            // 先father再son
+            
+            // 事件对象,跟事件相关的一系列信息数据的集合都放到这个对象里面
+            // eventTarget.onclick = function(event) {
+            //     // 这个 event 就是事件对象，我们还喜欢的写成 e 或者 evt
+            // }
+            // eventTarget.addEventListener('click', function(event) {
+            //     // 这个 event 就是事件对象，我们还喜欢的写成 e 或者 evt
+            // })
+
+            // e.target 和 this 的区别：
+            // this 是事件绑定的元素， 这个函数的调用者（绑定这个事件的元素）
+            // e.target 是事件触发的元素。
+            // 给ul绑定事件，点击li，e.target 指向我们点击的那个对象 谁触发了这个事件 我们点击的是li e.target 指向的就是li。this就是ul
+            // e.type事件类型
+            // e.preventDefault()	该方法阻止默认行为 比如不让链接跳转
+            // e.stopPropagation()	阻止冒泡
+
+            // 事件代理，不是每个子节点单独设置事件监听器，而是事件监听器设置在其父节点上，然后利用冒泡原理影响设置每个子节点
+            // var ul = document.querySelector('ul');
+            // ul.addEventListener('click', function(e) {
+            //     // alert('知否知否，点我应有弹框在手！');
+            //     // e.target 这个可以得到我们点击的对象
+            //     e.target.style.backgroundColor = 'pink';
+            //     // 点了谁，就让谁的style里面的backgroundColor颜色变为pink
+            // })
+            // 以上案例：给 ul 注册点击事件，然后利用事件对象的 target 来找到当前点击的 li，因为点击 li，事件会冒泡到 ul 上， ul 有注册事件，就会触发事件监听器。
+
+            // 1. contextmenu 我们可以禁用右键菜单
+            // document.addEventListener('contextmenu', function(e) {
+            //     e.preventDefault(); // 阻止默认行为
+            // })
+            // // 2. 禁止选中文字 selectstart
+            // document.addEventListener('selectstart', function(e) {
+            //     e.preventDefault();
+            // })
+
+            // keydown – keypress — keyup
+        </script>
+        
+    </body>
+</html>
