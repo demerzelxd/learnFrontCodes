@@ -28,6 +28,8 @@
             console.log(date.getDate()); //返回的是几号
             console.log(date.getDay());  //周一返回1 周6返回六 周日返回0
 
+            console.log('--------数组的操作--------')
+            // 对数组的操作有可能改变其本身
             // 数组
             var arr = [1, 2];
             var obj = {};
@@ -77,12 +79,50 @@
             // var arrOri2 = [3, 4];
             // console.log(arrOri1.concat(arrOri2))
 
-            // slice()	数组截取slice(begin,end)	返回被截取项目的新数组
+            // slice()	数组截取slice(begin,end)	返回被截取项目的新数组，下标从0开始[1, 2)
             var arrOri = [1, 2, 3, 4]
             console.log(arrOri.slice(1, 2))
+            // [2]
             console.log(arrOri)
-            // splice()	数组删除splice(第几个开始要删除的个数)	返回被删除项目的新数组，这个会影响原数组
+            // splice()	数组删除splice	返回被删除项目的新数组，这个会影响原数组
+            var arrOri1 = [1, 2, 3, 4];
+            // 从第1个开始删除两个，，数组变为[1, 4]
+            arrOri1.splice(1, 2);
+            console.log(arrOri1)
+            
+            console.log('--------字符串的操作--------')
+            // 对字符串的操作不会改变其本身，因为字符串不可变，操作完成会返回一个新的字符串
+            // 索引从0开始
+            var str = '改革春风吹满地，春天来了';
+            console.log(str.indexOf('春')); //默认从0开始查找 ，结果为2
+            console.log(str.indexOf('春', 3)); // 从索引号是 3的位置开始往后查找，结果是8
+            // 根据位置返回字符
+            console.log(str.charAt(0));
+            // 获取指定位置处字符的ASCII码
+            console.log(str.charCodeAt(0));
+            // 获取指定位置处字符，等效于charAt
+            console.log(str[0]);
+            // concat() 方法用于连接两个或对各字符串。拼接字符串
+            var str1 = 'str1'
+            var str2 = 'str2'
+            console.log(str1.concat(str2));
+            // 截取
+            console.log(str.substring(1, 2));// 革
+            // 替换，只会替换第一个字符
+            // console.log(str.replace('春', '冬'));
+            // 替换全部
+            // while (str.indexOf('春') !== -1) {
+            //     str = str.replace('春', '冬')
+            // }
+            // console.log(str)
+            console.log(str.replaceAll('春', '冬'))
 
+            console.log('--------值类型与引用类型--------')
+            // 值类型：在存储时变量中存储的是值本身，因此叫做值类型，存放在栈
+            // string，number，boolean，undefined，null
+            // 引用类型：复杂数据类型，在存储时变量中存储的仅仅是地址（引用），因此叫做引用数据类型，存放在堆
+            // 通过 new 关键字创建的对象（系统对象、自定义对象），如 Object、Array、Date等
+            
         </script>
     </head>
     <body>
