@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            window.addEventListener('load', function () {
+                var inputEl = document.querySelector('input');
+                var setEl = document.querySelector('.set');
+                var getEl = document.querySelector('.get');
+                var delEl = document.querySelector('.del');
+                var clearEl = document.querySelector('.clear');
+                setEl.addEventListener('click', function () {
+                    sessionStorage.setItem('content', inputEl.value)
+                })
+                getEl.addEventListener('click', function () {
+                    console.log(sessionStorage.getItem('content'));
+                })
+                delEl.addEventListener('click', function () {
+                    sessionStorage.removeItem('content')
+                })
+                clearEl.addEventListener('click', function () {
+                    sessionStorage.clear()
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <!--sessionStorage可以存5M，localStorage可以存20M，只能存字符串，对象需要JSON.stringify编码后存储-->
+        <!--sessionStorage，生命周期为关闭浏览器窗口-->
+        <!--localStorage，生命周期为永久生效，多页面共享-->
+        <input type="text">
+        <button class="set">存储数据</button>
+        <button class="get">获取数据</button>
+        <button class="del">删除数据</button>
+        <button class="clear">清除所有数据</button>
+    </body>
+</html>

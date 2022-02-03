@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <img src="" alt="">
+        <div></div>
+        <script>
+            var divEl = document.querySelector('div');
+            var imgEl = document.querySelector('img');
+            // 得到当前的小时数
+            var hour = new Date().getHours();
+            if (hour < 12) {
+                // innerText会去除空格和换行，所以直接无脑innerHtml即可
+                imgEl.src = '../../1-HTML&CSS基础到中级/assets/bg1.png'
+                divEl.innerHTML = '上午好！！'
+            } else {
+                imgEl.src = '../../1-HTML&CSS基础到中级/assets/bg2.png'
+                divEl.innerHTML = '下午好！！'
+            }
+        </script>
+    </body>
+</html>

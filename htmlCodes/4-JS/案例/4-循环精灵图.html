@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            li {
+                list-style-type: none;
+            }
+            
+            .box {
+                width: 300px;
+                margin: 100px auto;
+                background-color: pink;
+            }
+
+            /*父级添加after伪元素，相当于在最后新增一个标签*/
+            /*清除浮动的目的是为了保留父元素的样式*/
+            .clearfix:after {
+                content: "";
+                display: block;
+                height: 0;
+                clear: both;
+                visibility: hidden;
+            }
+
+            .clearfix {
+                /*兼容IE6、7*/
+                *zoom: 1;
+            }
+            
+            .box li {
+                float: left;
+                width: 25px;
+                height: 25px;
+                margin: 25px;
+                background: url(../assets/sprite.png) no-repeat;
+            }
+
+            .box li:last-child {
+                margin-right: 0;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="box clearfix">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <script>
+            // 1. 获取元素 所有的小li
+            var lis = document.querySelectorAll('li');
+            for (let i = 0; i < lis.length; i++) {
+                // 让索引号 乘以 44 就是每个li 的背景y坐标  index就是我们的y坐标
+                var index = i * 44;
+                lis[i].style.backgroundPosition = '0 -' + index + 'px';
+            }
+        </script>
+    </body>
+
+</html>

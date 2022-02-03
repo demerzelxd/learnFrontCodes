@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box {
+                width: 200px;
+                height: 50px;
+                /*border: 1px solid pink;*/
+                margin: 0 auto;
+            }
+            
+            .box span {
+                float: left;
+                width: 50px;
+                height: 50px;
+                margin: 0 8px;
+                text-align: center;
+                line-height: 50px;
+                background-color: black;
+                color: white;
+            }
+        </style>
+        <script>
+            // 以往的js都是写在dom之后，等图像，css加载完才执行
+            // 可以使用window.onload，这样就可以把js写在上面了，但是执行还是在之后
+            // window.onload相当于window.addEventListener('load', function ())
+            // window.onload函数可以写多个，以最后的为准
+            
+            // window.onload = function () {
+            //     var btn = document.querySelector('button');
+            //     btn.onclick = function () {
+            //         alert('点击了');
+            //     }
+            // }
+            
+            window.addEventListener('load', function () {
+                var btn = document.querySelector('button');
+                btn.addEventListener('click', function () {
+                    alert('点击了')
+                })
+                // 调整窗口大小事件
+                window.addEventListener('resize', function () {
+                    // 浏览器窗口宽度
+                    if (window.innerWidth < 800) {
+                        btn.style.display = 'none'
+                    } else {
+                        btn.style.display = 'block'
+                    }
+                })
+                // 定时器setTimeOut和setInternal,window可以省略
+                // 意思是3s之后调用函数
+                // var timer1 = setTimeout(doSomething, 3000)
+                // var timer2 = setTimeout(doSomething, 5000)
+                function doSomething () {
+                    console.log('调用函数！');
+                }
+                // doSomething称为回调函数，意思就是不是马上调用，而是等时间到了再回头调用
+                // 清除定时器
+                // clearTimeout(timer1)
+                
+                // 每隔一段时间就调用
+                // var timer3 = setInterval(doSomething, 1000);
+                
+                // 倒计时案例
+                var hour = document.querySelector('.hour');
+                var minute = document.querySelector('.minute');
+                var second = document.querySelector('.second');
+                // 用户输入时间毫秒数
+                var inputTime = +new Date('2022-02-03 18:00:00');
+                // 先调用一下，再间隔调用，这样不用等1s之后才显示
+                countDown();
+                setInterval(countDown, 1000)
+                function countDown () {
+                    // time为用户输入的截止时间
+                    // 当前时间毫秒数
+                    var nowTime = +new Date();
+                    // 剩余秒数
+                    var times = (inputTime - nowTime) / 1000;
+                    var hours = parseInt(times / 60 / 60 % 24); // 时
+                    hours = hours < 10 ? '0' + hours : hours;
+                    var minutes = parseInt(times / 60 % 60); // 分
+                    minutes = minutes < 10 ? '0' + minutes : minutes;
+                    var seconds = parseInt(times % 60); // 秒
+                    seconds = seconds < 10 ? '0' + seconds : seconds;
+                    hour.innerHTML = hours;
+                    minute.innerHTML = minutes;
+                    second.innerHTML = seconds;
+                }
+            })
+            
+            // 全局场景下，函数内，定时器内，this指向的是window
+            // singer.sing(this)，调用时，this指向的是调用者singer
+            // btn.onclick = function，function内部的this是btn
+            // 构造函数中var fun = new Fun(this)里面的this指的是实例fun
+            
+            // js的同步和异步
+            console.log(1)
+            setTimeout(function () {
+                console.log(3)
+            }, 1000)
+            console.log(2)
+            // 顺序为1,2,3
+            // 回调函数属于异步事件，同步任务结束完之后，再找异步任务
+            
+            // window 对象给我们提供了一个 location属性用于获取或者设置窗体的url，并且可以解析url，可以省去window
+            // location.href	获取或者设置整个URL
+            // location.host	返回主机（域名）www.baidu.com
+            // location.port	返回端口号，如果未写返回空字符串
+            // location.pathname	返回路径
+            // location.search	返回参数 ?uname=andy
+            // location.hash	返回片段 #后面内容常见于链接 锚点
+
+            // 记录浏览历史，所以可以实现后退功能
+            // location.assign('http://www.itcast.cn');
+            // 不记录浏览历史，所以不可以实现后退功能
+            // location.replace('http://www.itcast.cn');
+            // location.reload()	重新加载页面，相当于刷新按钮或者 f5 ，如果参数为true 强制刷新 ctrl+f5
+
+            // navigator 对象包含有关浏览器的信息，它有很多属性
+            // 我们常用的是userAgent,该属性可以返回由客户机发送服务器的user-agent头部的值
+            // 判断用户是用哪个终端打开页面的，如果是用 PC 打开的，我们就跳转到 PC 端的页面，如果是用手机打开的，就跳转到手机端页面
+            // if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+            //     window.location.href = "";     //手机
+            // } else {
+            //     window.location.href = "";     //电脑
+            // }
+
+            // window 对象给我们提供了一个 history 对象，与浏览器历史记录进行交互
+            // 该对象包含用户（在浏览器窗口中）访问过的 URL。
+            // history.back()后退
+            // history.forward()前进
+            // history.go(参数)	前进后退功能，参数如果是 1 前进1个页面 如果是 -1 后退1个页面
+            
+            // 仅dom加载完就触发，不包括css图片等
+            // window.addEventListener('DOMContentLoaded', function () {
+            //
+            // })
+        </script>
+    </head>
+    <body>
+        <!--bom浏览器对象模型，bom比dom大-->
+        <!--window下面包括了document，location，navigation，screen，history-->
+        <button>点击</button>
+        <!--倒计时-->
+        <div class="box">
+            <span class="hour"></span>
+            <span class="minute"></span>
+            <span class="second"></span>
+        </div>
+    </body>
+</html>

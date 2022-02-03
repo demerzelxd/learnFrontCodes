@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            .box {
+                width: 400px;
+                border-bottom: 1px solid #CCC;
+                margin: 100px auto;
+            }
+            
+            .box input {
+                width: 370px;
+                height: 30px;
+                border: 0;
+                outline: none;
+            }
+            
+            .box img {
+                width: 24px;
+                float: right;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            <img src="../assets/close.png" alt="">
+            <input type="password" id="">
+        </div>
+        <script>
+            var inputEl = document.querySelector('input');
+            var imgEl = document.querySelector('img');
+            var visibleFlag = false;
+            imgEl.onclick = function () {
+                visibleFlag = !visibleFlag;
+                if (visibleFlag) {
+                    imgEl.src = '../assets/open.png';
+                    inputEl.type = 'text';
+                } else {
+                    imgEl.src = '../assets/close.png';
+                    inputEl.type = 'password';
+                }
+            }
+        </script>
+    </body>
+</html>
