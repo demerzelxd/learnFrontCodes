@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            li {
+                list-style: none;
+            }
+            
+            a {
+                color: #333;
+                text-decoration: none;
+            }
+            
+            .nav-item {
+                float: left;
+                width: 100px;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+            }
+            
+            /*一开始下拉框都是隐藏的*/
+            .scroll {
+                display: none;
+            }
+
+            .scroll-item {
+                border: 1px solid orange;
+            }
+        </style>
+        <script src="../js/jquery-3.6.0.js"></script>
+        <script>
+            $(function () {
+                // 鼠标经过
+                $('.nav-item').mouseover(function () {
+                    // $(this)为jquery的当前元素
+                    $(this).children('.scroll').show()
+                })
+                // 鼠标离开
+                $('.nav-item').mouseout(function () {
+                    // $(this)为jquery的当前元素
+                    $(this).children('.scroll').hide()
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <ul class="nav">
+            <li class="nav-item active">
+                <a href="">微博</a>
+                <ul class="scroll">
+                    <li class="scroll-item">私信</li>
+                    <li class="scroll-item">评论</li>
+                    <li class="scroll-item">@我</li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="">微博</a>
+                <ul class="scroll">
+                    <li class="scroll-item">私信</li>
+                    <li class="scroll-item">评论</li>
+                    <li class="scroll-item">@我</li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="">微博</a>
+                <ul class="scroll">
+                    <li class="scroll-item">私信</li>
+                    <li class="scroll-item">评论</li>
+                    <li class="scroll-item">@我</li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="">微博</a>
+                <ul class="scroll">
+                    <li class="scroll-item">私信</li>
+                    <li class="scroll-item">评论</li>
+                    <li class="scroll-item">@我</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>

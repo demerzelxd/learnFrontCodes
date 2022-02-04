@@ -3,8 +3,65 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+        <script src="./js/jquery-3.6.0.js"></script>
+        <style>
+            div {
+                width: 200px;
+                height: 200px;
+                background-color: pink;
+                margin: 0 auto;
+            }
+        </style>
+        <script>
+            // 页面dom加载完了才执行，下面两种写法均可，相当于DOMContentLoaded，dom加载完即执行，不关心css，图片等
+            $(function () {
+                // jquery的顶级对象$，是jquery的别称
+                // jquery对象和dom对象是不同的
+                console.dir(document.querySelector('div'))
+                console.dir($('div'))
+                // jquery对象的本质是$对dom对象包装后产生的对象，以伪数组形式存储
+                // 把dom对象转为jquery对象，$(dom对象)
+                // 把jquery对象转为dom对象，$('div')[index]或$('div').get(index)
+                
+                // jquery基本选择器
+                // 全选选择器$('*')
+                // 并集选择器$('div,p,li')
+                // 交集选择器$('li.current')
+                
+                // jquery设置样式
+                // $('div').css('background-color','pink')
+                
+                // jquery筛选选择器
+                // $('li:first') 获取第一个li
+                // $('li:last') 获取最后一个li
+                // $('li:eq(2)') 获取第二个li，索引号从0开始
+                // $('li:odd') 获取索引号为奇数的
+                // $('li:even') 获取索引号为偶数的
+                // $('li').parent() 获取最近的父元素
+                // $('ul').children('li') 获取最近的子元素，相当于$('ul>li')
+                // $('ul').find('li') 获取所有的子元素，相当于$('ul li')
+                // $('.first').siblings('li') 获取所有兄弟
+                // $('.first').nextAll() 获取当前元素之后的所有兄弟
+                // $('.last').prevAll() 获取当前元素之前的所有兄弟
+                // $('ul').hasClass('customClassName') 获取当前元素是否有该类
+                // $('li').eq(2) 获取第二个li，相当于$('li:eq(2))
+                
+                
+                
+                // $('div').hide();
+            })
+            
+            // $(document).ready(function () {
+            //     $(function () {
+            //         $('div').hide();
+            //     })
+            // })
+            
+            
+            
+        </script>
     </head>
     <body>
-    
+        <div></div>
     </body>
 </html>
