@@ -45,10 +45,58 @@
                 // $('.last').prevAll() 获取当前元素之前的所有兄弟
                 // $('ul').hasClass('customClassName') 获取当前元素是否有该类
                 // $('li').eq(2) 获取第二个li，相当于$('li:eq(2))
+    
+                // 如果只写属性名，则获取当前属性值
+                // console.log($('div').css('width'))
+                // 多属性
+                // $('div').css({'color': 'white', 'height': '300px', 'background-color': ''})
+                // 属性的对象写法
+                // $('div').css({
+                //     color: 'white',
+                //     height: '300px',
+                //     backgroundColor: 'red'
+                // })
                 
-                
+                // 切换类名，点一下addClass，再点一下removeClass
+                // $('div').toggleClass('current')
                 
                 // $('div').hide();
+                
+                //jquery动画封装
+                // 显示隐藏show,hide,toggle
+                // 滑动slideDown,slideUp,slideToggle
+                // 淡入淡出fadeIn,fadeOut,fadeToggle,fadeTo
+                // 自定义动画animate
+                
+                // show([SPEED],[EASING],[FN])
+                // speed可以写slow，normal，fast；也可以写动画时长的毫秒值1000
+                // easing可以写swing，linear
+                // fn动画完成后执行该函数
+                
+                // 事件切换$('').hover(over,out)
+                // 相当于，mouseover和mouseout
+                // 如果只写一个$('').hover(fn)，则mouseover和mouseout都会执行该方法fn
+                
+                // jquery停止动画排队stop
+                // 每次做动画时先停止上一次的动画，再进行
+                // $().stop().slideToggle()
+                
+                // fadeTo渐进方式调整到执行的不透明度,speed必填,opacity取值为0-1
+                // fadeTo(speed, opacity, [easing], [fn])
+                
+                // 自定义动画animate
+                // animate(params, [speed], [easing], [fn]) params必须使用对象写法
+                
+                // 获取元素固有属性值prop,比如input的type
+                // $('').prop('type')
+                // 设置属性值
+                // $('').prop('type', 'text')
+                
+                // 获取元素的自定义属性值attr()
+                
+                // 数据缓存data()
+                // 可以在指定的元素上存取数据，不会修改dom结构，一旦页面刷新，之前存放的数据会被移除
+                // $('').data('id', '123456')
             })
             
             // $(document).ready(function () {

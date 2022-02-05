@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .top {
+                height: 30px;
+                line-height: 30px;
+            }
+            
+            li {
+                list-style: none;
+                float: left;
+                width: 100px;
+                text-align: center;
+                cursor: pointer;
+            }
+
+            .current {
+                color: #FFF;
+                background-color: red;
+            }
+            
+            
+        </style>
+        <script src="../js/jquery-3.6.0.js"></script>
+        <script>
+            $(function () {
+                // 一开始只显示商品介绍详情
+                $('.bottom > div').eq(0).show().siblings().hide()
+                // li点击事件
+                $('.top li').click(function () {
+                    // 背景色
+                    $(this).addClass('current').siblings().removeClass('current')
+                    // 显示下方文字
+                    $('.bottom > div').eq($(this).index()).show().siblings().hide()
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="box">
+            <ul class="top">
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+            </ul>
+            <div class="bottom">
+                <div>商品介绍详情</div>
+                <div>规格与包装详情</div>
+                <div>售后保障详情</div>
+            </div>
+        </div>
+    </body>
+</html>

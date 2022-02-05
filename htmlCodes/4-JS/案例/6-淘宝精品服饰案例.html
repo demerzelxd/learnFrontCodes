@@ -3,8 +3,74 @@
     <head>
         <meta charset="UTF-8">
         <title>Title</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            
+            li {
+                list-style: none;
+                line-height: 26px;
+                height: 26px;
+                border: 1px solid pink;
+                text-align: center;
+                cursor: pointer;
+            }
+            
+            img {
+                border: 1px solid pink;
+            }
+            
+            .box {
+                height: 250px;
+            }
+            
+            ul, img {
+                float: left;
+            }
+        </style>
+        <script src="../js/jquery-3.6.0.js"></script>
+        <script>
+            $(function () {
+                // 一开始只有女靴是show，其他hide
+                // 链式编程
+                $('img:eq(0)').show().siblings().hide()
+                // 悬浮时
+                $('li').mouseover(function () {
+                    // 悬浮在第几个li上
+                    var index = $(this).index()
+                    // 只有第index个img才显示，其余hide
+                    $('img').eq(index).show().siblings().hide()
+                })
+            })
+        </script>
     </head>
     <body>
-    
+        <div class="box">
+            <ul>
+                <li>女靴</li>
+                <li>雪地靴</li>
+                <li>冬裙</li>
+                <li>呢大衣</li>
+                <li>毛衣</li>
+                <li>棉服</li>
+                <li>女裤</li>
+                <li>羽绒服</li>
+                <li>牛仔裤</li>
+            </ul>
+            <div>
+                <img src="../assets/女靴.jpg" alt="">
+                <img src="../assets/雪地靴.jpg" alt="">
+                <img src="../assets/冬裙.jpg" alt="">
+                <img src="../assets/呢大衣.jpg" alt="">
+                <img src="../assets/毛衣.jpg" alt="">
+                <img src="../assets/棉服.jpg" alt="">
+                <img src="../assets/女裤.jpg" alt="">
+                <img src="../assets/羽绒服.jpg" alt="">
+                <img src="../assets/牛仔裤.jpg" alt="">
+            </div>
+            
+        </div>
     </body>
 </html>
