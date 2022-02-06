@@ -5,6 +5,9 @@
         <title>Title</title>
         <script src="./js/jquery-3.6.0.js"></script>
         <style>
+            body {
+                height: 2000px;
+            }
             div {
                 width: 200px;
                 height: 200px;
@@ -97,6 +100,136 @@
                 // 数据缓存data()
                 // 可以在指定的元素上存取数据，不会修改dom结构，一旦页面刷新，之前存放的数据会被移除
                 // $('').data('id', '123456')
+    
+                // 遍历对象 $('').each
+                $('div').each(function (index, item) {
+                    // item是dom对象，不是jquery对象
+                })
+    
+                // 遍历数据 $.each
+                $.each($('div'), function (index, item) {
+        
+                })
+    
+                var arr = [1, 2, 3, 4]
+                $.each(arr, function (index, item) {
+        
+                })
+    
+                var person = {
+                    name: 'dada',
+                    age: 18
+                }
+                $.each(person, function (index, item) {
+        
+                })
+    
+                // jquery创建添加删除元素
+                // 创建
+                var subDiv = $('<div>我是后来创建的div</div>')
+                // 添加
+                // 内部添加类似原生的appendChild
+                // $('div').append(subDiv)
+                // prepend内部添加放在最前面
+                // $('div').prepend(subDiv)
+                // 外部添加
+                // $('div').after(subDiv)
+                // $('div').before(subDiv)
+                // 删除
+                // $('div').remove()
+                // 清空，删除内部的元素，下面两种等价
+                // $('div').empty()
+                // $('div').html('')
+                
+                // jquery尺寸位置操作
+                // .width()和.height()
+                // .innerWidth()和.innerHeight()包含padding
+                // .outerWidth()和.outerHeight()包含padding，border
+                // .outerWidth(true)和.outerHeight(true)包含padding，border，margin
+                
+                // 位置
+                // offset()设置或获取元素的位置偏移，相对于整个页面
+                console.log($('div').offset()); // {top: 8, left: 924}
+                // $('div').offset({
+                //     top: 200,
+                //     left: 200
+                // })
+                // position()获取元素相对于父盒子的偏移，只能获取不能设置
+                // scrollTop()获取或设置被选元素被卷去的头部
+                $(window).scroll(function () {
+                    console.log($(document).scrollTop())
+                })
+                // 可以使用$(document).scrollTop()返回顶部
+                // 但是没有动画，使用animate
+                // $('body, html').stop().animate({
+                //     scrollTop: 0
+                // });
+                
+                // jquery事件
+                // 事件注册普通写法
+                // $('div').click(function () {
+                //
+                // })
+                // 事件处理on绑定，可以给一个元素绑定多个处理函数
+                // $('div').on(events, [selector], fn)
+                // $('div').on({
+                //     mouseenter: function () {
+                //
+                //     },
+                //     click: function () {
+                //
+                //     }
+                // })
+                // 当事件处理程序相同时
+                // $('div').on("mouseenter mouseleave", function () {
+                //
+                // })
+                
+                // 事件委托，把子元素的事件委托给父元素
+                // $('ul li').click();
+                // $('ul').on('click', 'li', function (e) {
+                //     e.preventDefault阻止默认行为 或者 return false
+                //     e.stopPropagation阻止冒泡
+                // })
+                
+                // 使用on，在后面动态创建的元素也能绑定click
+                // $('ul').on('click', 'li', function (e) {
+                //     alert(11)
+                // })
+                // var li = '我是后来动态创建的li'
+                // $('ul').append(li)
+                
+                // off解绑事件
+                // $('ul').off()
+                // $('ul').off('click')
+                // $('ul').off('click', 'li')
+                
+                // 如果有的事件只想触发一次，可以用one()绑定
+                // $('ul').one()
+                
+                // 自动触发
+                // $('ul').click()
+                // $('ul').trigger('click')
+                // $('ul').triggerHandler('click') 不会触发元素的默认行为
+                
+                // 对象拷贝$.extend([deep], target, object1, [objectN]) deep为true则深拷贝，把object1拷贝给target
+                var target = {};
+                var obj = {
+                    id: 1,
+                    name: 'dada',
+                    msg: {
+                        text: '111'
+                    }
+                }
+                $.extend(target, obj)
+                console.log(target) // 会覆盖target原来的数据
+                // 对于对象msg来说，修改target会连带着修改obj
+                target.msg.text = '222'
+                console.log(target)
+                console.log(obj)
+                // 浅拷贝会把msg复杂数据类型的地址拷贝给target，当修改target后也会修改obj
+                // 改用深拷贝
+                $.extend(true, target, obj)
             })
             
             // $(document).ready(function () {
@@ -105,8 +238,9 @@
             //     })
             // })
             
-            
-            
+            // 获取或设置普通元素里面的内容html()相当于innerHTML
+            // 获取或设置普通元素里面的文本text()相当于innerText
+            // 获取或设置表单input的内容.val('')
         </script>
     </head>
     <body>
