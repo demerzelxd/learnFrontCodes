@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>一段时间内频繁触发事件时只执行一次</title>
+        <script src="../js/jquery-3.6.0.js"></script>
+        <script>
+            $(function () {
+                var timer = null;
+                function debounceSearch (keywords) {
+                    timer = setTimeout(function () {
+                        // 发请求
+                        getFileList(keywords);
+                    }, 500)
+                }
+
+                $('#ipt').on('keyup', function () {
+                    clearTimeout(timer);
+                    debounceSearch(keywords);
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <input type="text" id="ipt">
+    </body>
+</html>

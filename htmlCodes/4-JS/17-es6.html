@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <script>
+            // 为整个脚本文件开启严格模式，需要在所有语句之前放一个特定语句
+            // 'user strict';
+            // console.log("这是严格模式。");
+            // 有的 script 基本是严格模式，有的 script 脚本是正常模式，这样不利于文件合并，所以可以将整个脚本文件放在一个立即执行的匿名函数之中
+            // (function (){
+            //     'use strict';
+            //     var num = 10;
+            //     function fn() {}
+            // })();
+
+            // 此时只是给fn函数开启严格模式
+            // function fn() {
+            //     'use strict';
+            //     // 下面的代码按照严格模式执行
+            // }
+
+            // 在正常模式中，如果一个变量没有声明就赋值，默认是全局变量
+            // 严格模式禁止这种用法，变量都必须先用var 命令声明，然后再使用
+            // 严禁删除已经声明变量，例如，delete x 语法是错误的
+
+            // 严格模式下全局作用域中函数中的this 是 undefined
+            // 严格模式下函数里面的参数不允许有重名
+
+            // 高阶函数- 函数可以作为参数传递
+            // function fn(a, b, callback) {
+            //     console.log(a + b);
+            //     // &&短路操作，如果a为真，则返回b，故输出456
+            //     callback && callback();
+            // }
+            // fn(1, 2, function() {
+            //     console.log('我是最后调用的');
+            // });
+
+            // 此时fn就是一个高阶函数
+            // 函数也是一种数据类型，同样可以作为参数，传递给另外一个参数使用。最典型的就是作为回调函数
+            // 同理函数也可以作为返回值传递回来
+
+            // 闭包（closure）指有权访问另一个函数作用域中的变量的函数
+            // 简单理解：一个作用域可以访问另外一个函数内部的局部变量
+            // 闭包: 我们fn2 这个函数作用域 访问了另外一个函数 fn1 里面的局部变量 num
+            // function fn1() {		// fn1就是闭包函数
+            //     var num = 10;
+            //     function fn2() {
+            //         // debugger
+            //         console.log(num); 	//10
+            //     }
+            //     fn2();
+            // }
+            // fn1();
+
+            // 我们fn 外面的作用域可以访问fn 内部的局部变量
+            // 闭包的主要作用: 延伸了变量的作用范围
+            // function fn() {
+            //     var num = 11;
+            //     // 返回局部变量：一个方法
+            //     return function() {
+            //         console.log(num);
+            //     }
+            // }
+            // var f = fn();
+            // // 执行闭包fn的局部变量
+            // f();
+
+            // 闭包应用-点击li输出当前li的索引号
+            // 1. 我们可以利用动态添加属性的方式
+            window.onload = function () {
+                var lis = document.querySelector('.nav').querySelectorAll('li');
+                // for (var i = 0; i < lis.length; i++) {
+                //     lis[i].index = i;
+                //     lis[i].onclick = function() {
+                //         // console.log(i);
+                //         console.log(this.index);
+                //     }
+                // }
+                // 2. 利用闭包的方式得到当前小li 的索引号
+                // for (var i = 0; i < lis.length; i++) {
+                //     // 利用for循环创建了4个立即执行函数
+                //     // 立即执行函数也成为小闭包因为立即执行函数里面的任何一个函数都可以使用它的i这变量
+                //     (function(i) {
+                //         // console.log(i);
+                //         lis[i].onclick = function() {
+                //             console.log(i);
+                //         }
+                //     })(i);
+                // }
+
+                // 闭包应用 3秒钟之后,打印所有li元素的内容
+                // for (var i = 0; i < lis.length; i++) {
+                //     (function(i) {
+                //         setTimeout(function() {
+                //             console.log(lis[i].innerHTML);
+                //         }, 3000)
+                //     })(i);
+                // }
+
+                // Object.assign(target,…sources) ES6新增方法可以浅拷贝
+
+                // 在JavaScript中，可以通过两种方式创建正则表达式
+                // 通过调用 RegExp 对象的构造函数创建；通过字面量创建
+                // 通过调用 RegExp 对象的构造函数创建:
+                var regExp1 = new RegExp(/^abc/);
+                var regExp2 = /abc$/;
+                // 测试正则表达式 test
+                console.log(regExp1.test('1abc'));
+                console.log(regExp2.test('1abc'));
+
+                // [] 方括号:/[abc]/.test('andy'); // true 后面的字符串只要包含 abc 中任意一个字符,都返回true
+                // [-]方括号内部 范围符:/^[a-z]$/.test() 方括号内部加上 - 表示范围，这里表示 a - z 26个英文字母都可以
+                // [^] 方括号内部 取反符 ^:/[^abc]/.test('andy') // false 方括号内部加上 ^ 表示取反，只要包含方括号内的字符，都返回 false
+                // 注意和边界符 ^ 区别，边界符写到方括号外面
+                // 字符组合:/[a-z1-9]/.test('andy') // true 方括号内部可以使用字符组合，这里表示包含 a 到 z的26个英文字母和1到9的数字都可以
+
+                // replace()方法可以实现替换字符串操作，用来替换的参数可以是一个字符串或是一个正则表达式
+                // var str = 'andy8red56';
+                // console.log(str.replace('andy', 'baby'));
+                // console.log(str.replace(/[0-9]/g, 'baby'));
+
+                // let支持块级作用域，不支持变量提升，只能先声明再使用
+                const arr = [1, 2, 3]
+                arr[0] = 4; // 是可以的，只要不修改arr的地址就行
+                // arr = [4, 5]; // 报错
+
+                // 解构赋值
+                let arr2 = [1, 2, 3];
+                let [a, b, c] = arr2;
+
+                let [d, e, f, g] = arr2;
+                // g为undefined
+
+                // 对象解构
+                let person = {name: 'dada', age: 20}
+                let {name, age} = person;
+
+                let {name: myName} = person;
+                // name只用于匹配，真正的变量是myName
+                console.log(myName);
+
+                // 箭头函数简化函数定义语法
+                // () => {}
+                const fn = () => {
+                    console.log(123)
+                }
+                fn()
+                // 返回值时的省略写法
+                const sum = (num1, num2) => num1 + num2;
+                console.log(sum(1, 2));
+
+                // 形参只有一个的省略写法
+                const upper = oriStr => oriStr.toUpperCase()
+                console.log(upper('hello'));
+
+                // 箭头函数里面的this指向的是函数定义位置的上下文this
+                const obj = {name: 'dada'}
+
+                function fn2() {
+                    console.log(this)
+                    return () => {
+                        console.log(this)
+                    }
+                }
+
+                // 把this的指向改为obj
+                const fnVer = fn2.call(obj);
+                fnVer();
+
+                // 在箭头函数中，箭头函数中不能使用arguments接收多个参数，但使用扩展运算符（…）的方式可以接收任意个数的参数。
+                const sum1 = (...args) => { //...args表示接收多个参数，箭头函数中不能使用arguments接收多个参数
+                    let total = 0;
+                    console.log(typeof args);
+                    args.forEach(item => total += item);// item表示数组的每一项元素
+                    return total;
+                };
+                console.log(sum1(10, 20, 30));
+
+                //剩余参数和解构配合使用
+                let ary1 = ['张三', '李四', '王五'];
+                let [s1, ...s2] = ary1;
+                console.log(s1) //s1接收数组中的第一个值
+                console.log(s2)//s2接收s1没有接收剩下的参数，然后s2为一个数组
+
+                // 扩展运算符
+                // 扩展运算符可以将数组拆分成以逗号分隔的参数序列,但是逗号被解析成console.log()的参数分隔符了
+                let ary2 = ["a", "b", "c"];
+                // ...ary ;// a b c
+                console.log(...ary2)
+
+                // 扩展运算符应用于数组合并
+                let arySub1 = [1, 2, 3];
+                let arySub2 = [4, 5, 6];
+
+                let aryWhole = [...arySub1, ...arySub2];
+                console.log(aryWhole)
+
+                // 合并数组的第二种方法
+                let arySub3 = [1, 2, 3];
+                let arySub4 = [4, 5, 6];
+
+                arySub3.push(...arySub4);
+                console.log(arySub3)
+
+                // 利用扩展运算符将伪数组转换为真正的数组
+                let oLis = document.getElementsByTagName('li');
+                let liArray = [...oLis];
+                liArray.push('a');
+                console.log(liArray);
+
+                // Array.from方法
+                // 作用：用于将伪数组转为真正的数组（需要有length对象的属性才可以）
+
+                let arrayLike = {
+                    "0": "1",
+                    "1": "2",
+                    "length": 2
+                }
+
+                let ary = Array.from(arrayLike, item => item * 2)
+                console.log(ary)
+
+                // find方法用于查找数组中第一个符合条件的元素,如果没有找到就返回undefined
+                var objArr = [{
+                    id: 1,
+                    name: '张三'
+                }, {
+                    id: 2,
+                    name: '李四'
+                }];
+                let target = objArr.find(item => item.id === 2);
+                console.log(target);
+
+                // findIndex方法用于找出第一个符合条件的数组成员下标,如果没有找到就返回-1
+                let numAry = [10, 20, 50];
+                let index = numAry.findIndex(item => item > 15); //找到第一个大于15的索引
+                console.log(index)
+
+                // 查看一个值是是否包含在数组中，如果包含返回true，不包含返回false
+
+                // 模板字符串可以解析变量
+                // 模板字符串可以换行显示
+                // 模板字符串是可以调用函数的
+
+                let sanName = '张三';
+                let sayHello = `Hello, 我的名字叫${sanName}`;
+                console.log(sayHello);
+
+                let result = {
+                	name: "zhangsan",
+                	age: 20
+                };
+                let html = `
+                	<div>
+                		<span>${result.name}</span>
+                		<span>${result.age}</span>
+                	</div>
+                `;
+                console.log(html);
+
+                const fnTry = () => {
+                    return '我是fn函数'
+                }
+
+                let html2 = `我是模板字符串 ${fnTry()}`;
+                //${fn()}调用fn函数，此处会显示调用函数的返回结果
+                console.log(html2)
+
+                // startsWith方法和endsWith方法
+
+                // repeat方法表示将原字符串重复n次，返回一个新字符串
+                console.log("ab".repeat(5))
+
+                // Set它类似于数组，但是成员的值都是唯一的，没有重复的值。
+                // Set本身是一个构造函数，用来生成  Set  数据结构。
+                // add(value)：添加某个值，返回 Set 结构本身
+                // delete(value)：删除某个值，返回一个布尔值，表示删除是否成功
+                // has(value)：返回一个布尔值，表示该值是否为 Set 的成员
+                // clear()：清除所有成员，没有返回值
+                // Set 结构的实例与数组一样，也拥有forEach方法，用于对每个成员执行某种操作
+                const set1 = new Set();
+                // const s3 = new Set(["a","a","b","b"]); //利用set数据结构做数组去重复
+                set1.add('11')
+                console.log(set1.size)
+                // const ary = [...set3];
+                // console.log(ary)
+
+
+            }
+
+        </script>
+    </head>
+    <body>
+        <ul class="nav">
+            <li>榴莲</li>
+            <li>臭豆腐</li>
+            <li>鲱鱼罐头</li>
+            <li>大猪蹄子</li>
+        </ul>
+    </body>
+</html>

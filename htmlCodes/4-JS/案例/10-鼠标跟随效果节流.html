@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>减少事件触发的次数</title>
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+
+            #open {
+                position: absolute;
+            }
+        </style>
+        <script src="../js/jquery-3.6.0.js"></script>
+        <script>
+            $(function () {
+                var openJq = $('#open');
+                // 定义一个节流阀timer，在16ms之内只能触发一次事件
+                var timer = null;
+                // 不使用节流时，鼠标每次移动都要触发一次事件
+                $(document).on('mousemove', function (e) {
+                    if (timer) {
+                        // 如果节流阀不为空，说明距离上次执行不足16毫秒
+                        return;
+                    }
+                    timer = setTimeout(function () {
+                        // 设置图片位置
+                        openJq.css('left', e.pageX + 'px').css('top', e.pageY + 'px');
+                        // 清空节流阀
+                        timer = null;
+                    }, 16);
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <img src="../assets/open.png" alt="" id="open">
+    </body>
+</html>
